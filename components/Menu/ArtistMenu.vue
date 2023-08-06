@@ -21,10 +21,10 @@
       </li>
 
       <li class="nav-item">
-        <a href="/controlroom/albums/add" class="nav-link d-flex align-items-center">
+        <NuxtLink to="/controlroom/albums/add" class="nav-link d-flex align-items-center">
           <i class="ri-add-box-line fs-5" />
           <span class="ps-3">Add Album</span>
-        </a>
+        </NuxtLink>
       </li>
 
       <li class="nav-item">
@@ -40,17 +40,17 @@
       </li>
 
       <li class="nav-item">
-        <a href="/controlroom/songs" class="nav-link d-flex align-items-center">
+        <NuxtLink to="/controlroom/songs" class="nav-link d-flex align-items-center">
           <i class="ri-music-2-line fs-5" />
           <span class="ps-3">Songs</span>
-        </a>
+        </NuxtLink>
       </li>
 
       <li class="nav-item">
-        <a href="/controlroom/albums" class="nav-link d-flex align-items-center">
+        <NuxtLink to="/controlroom/albums" class="nav-link d-flex align-items-center">
           <i class="ri-album-line fs-5" />
           <span class="ps-3">Albums</span>
-        </a>
+        </NuxtLink>
       </li>
 
       <li class="nav-item">

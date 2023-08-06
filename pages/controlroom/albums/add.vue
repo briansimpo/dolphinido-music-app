@@ -9,15 +9,13 @@ definePageMeta({
   <div class="under-hero container">
     <SectionPanel>
       <SectionHead>
-        <h1 class="display-6 d-block">
-          Add <span class="text-primary">Album</span>
-        </h1>
+        Add <span class="text-primary">Album</span>
       </SectionHead>
       <SectionBody>
         <div class="col-lg-8 mx-auto">
           <div class="card">
             <div class="card-body">
-              <AddAlbum />
+              <!--<AddAlbum />-->
             </div>
           </div>
         </div>

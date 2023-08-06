@@ -26,10 +26,10 @@
         </NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/controlroom/shows/add" class="dropdown-item d-flex align-items-center">
+        <a href="#" class="dropdown-item d-flex align-items-center">
           <i class="ri-calendar-event-line fs-5" />
           <span class="ps-2">Add Show</span>
-        </NuxtLink>
+        </a>
       </li>
     </ul>
   </div>

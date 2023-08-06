@@ -39,7 +39,7 @@ const { openSearch, closeSearch } = useAppSearch()
             <div class="col-xl-3 col-md-4 col-sm-6">
               <div class="list__item">
                 <a href="artist-details.html" class="list__cover">
-                  <img src="images/cover/large/5.jpg" alt="Jina Moore">
+                  <img src="/images/cover/large/5.jpg" alt="Jina Moore">
                 </a>
                 <div class="list__content">
                   <a href="artist-details.html" class="list__title text-truncate">
@@ -55,7 +55,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="artist-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/large/6.jpg"
+                  src="/images/cover/large/6.jpg"
                   alt="Rasomi Pelina"
                 ></a>
                 <div class="list__content">
@@ -73,7 +73,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="artist-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/large/7.jpg"
+                  src="/images/cover/large/7.jpg"
                   alt="Pimila Holliwy"
                 ></a>
                 <div class="list__content">
@@ -91,7 +91,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="artist-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/large/8.jpg"
+                  src="/images/cover/large/8.jpg"
                   alt="Karen Jennings"
                 ></a>
                 <div class="list__content">
@@ -118,7 +118,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="song-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/small/6.jpg"
+                  src="/images/cover/small/6.jpg"
                   alt="Hey not me"
                 ></a>
                 <div class="list__content">
@@ -138,7 +138,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="song-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/small/7.jpg"
+                  src="/images/cover/small/7.jpg"
                   alt="Deep inside"
                 ></a>
                 <div class="list__content">
@@ -158,7 +158,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="song-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/small/8.jpg"
+                  src="/images/cover/small/8.jpg"
                   alt="Sadness"
                 ></a>
                 <div class="list__content">
@@ -178,7 +178,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="song-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/small/9.jpg"
+                  src="/images/cover/small/9.jpg"
                   alt="Electric wave"
                 ></a>
                 <div class="list__content">
@@ -207,7 +207,7 @@ const { openSearch, closeSearch } = useAppSearch()
                 <a
                   href="album-details.html"
                   class="list__cover"
-                ><img src="images/cover/small/1.jpg" alt="Mummy"></a>
+                ><img src="/images/cover/small/1.jpg" alt="Mummy"></a>
                 <div class="list__content">
                   <a
                     href="album-details.html"
@@ -225,7 +225,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="album-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/small/2.jpg"
+                  src="/images/cover/small/2.jpg"
                   alt="Hot shot"
                 ></a>
                 <div class="list__content">
@@ -245,7 +245,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="album-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/small/3.jpg"
+                  src="/images/cover/small/3.jpg"
                   alt="Own way"
                 ></a>
                 <div class="list__content">
@@ -265,7 +265,7 @@ const { openSearch, closeSearch } = useAppSearch()
                   href="album-details.html"
                   class="list__cover"
                 ><img
-                  src="images/cover/small/4.jpg"
+                  src="/images/cover/small/4.jpg"
                   alt="Say yes"
                 ></a>
                 <div class="list__content">

@@ -12,9 +12,7 @@ const { songs } = useUserSongs()
   <div class="under-hero container">
     <SectionPanel>
       <SectionHead>
-        <h1 class="display-6 d-block">
-          My <span class="text-primary">Songs</span>
-        </h1>
+        My <span class="text-primary">Songs</span>
       </SectionHead>
       <SectionBody>
         <div class="row">
@@ -45,7 +43,7 @@ const { songs } = useUserSongs()
               <SongItem :song="song" />
             </div>
             <div v-if="songs === null" class="list">
-              <SongsNotFound />
+              <NotFound>songs not found</NotFound>
             </div>
           </div>
         </SongList>
