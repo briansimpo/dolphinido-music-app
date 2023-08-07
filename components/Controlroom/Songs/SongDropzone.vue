@@ -8,7 +8,13 @@ const { getRootProps, getInputProps } = useDropzone({
 })
 
 function onDrop (acceptFiles) {
-  file.value = acceptFiles[0]
+  const allowedTypes = ['audio/mpeg']
+  const uploadFile = acceptFiles[0]
+  if (allowedTypes.includes(uploadFile.type)) {
+    file.value = uploadFile
+  } else {
+    alert('File should be mp3')
+  }
 }
 
 function deleteFile () {
@@ -36,12 +42,10 @@ function deleteFile () {
     <div v-else v-bind="getRootProps()">
       <div class="card">
         <div class="card-body">
-          <div class="dropzone">
+          <FileDropzone>
             <input accept="mp3" v-bind="getInputProps()">
-            <p>
-              Drag and drop your song here, or Click to select file
-            </p>
-          </div>
+            <span> Click to Upload your Song </span>
+          </FileDropzone>
         </div>
       </div>
     </div>
@@ -49,18 +53,6 @@ function deleteFile () {
 </template>
 
 <style lang="scss" scoped>
-
-.dropzone {
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  transition: all 0.3s ease;
-  background: #fff;
-}
-
 .file-item {
   border-radius: 8px;
   display: flex;

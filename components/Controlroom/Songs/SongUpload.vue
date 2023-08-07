@@ -2,6 +2,7 @@
 const props = defineProps({
   file: { type: Object, required: true }
 })
+
 const { genres } = useGenres()
 const { albums } = useUserAlbums()
 const { addSong } = useAddSong()
