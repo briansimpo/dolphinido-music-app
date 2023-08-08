@@ -20,7 +20,7 @@ function submitForm (event) {
 <template>
   <form @submit.prevent="submitForm">
     <div class="mb-3">
-      <label for="title" class="form-label fw-medium">Official Title *</label>
+      <label for="title" class="form-label fw-medium">Title *</label>
       <input
         id="title"
         name="title"
