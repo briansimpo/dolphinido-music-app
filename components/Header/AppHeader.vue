@@ -11,7 +11,6 @@ const { toggleSidebar } = useSidebarToggle()
           </div>
           <AppSearch />
           <div class="header-text d-flex align-items-center text-white">
-            <UserLanguageDropdown />
             <UserDropdown />
           </div>
         </div>
