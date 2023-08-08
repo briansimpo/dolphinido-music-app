@@ -12,7 +12,9 @@ const props = defineProps({
         {{ props.album.title }}
       </NuxtLink>
       <p class="list__subtitle text-truncate">
-        <a href="#">{{ props.album.genre }}</a>
+        <NuxtLink :to="'/controlroom/albums/' + props.album.id">
+          {{ props.album.genre }}
+        </NuxtLink>
       </p>
     </div>
     <ul class="list__option">
