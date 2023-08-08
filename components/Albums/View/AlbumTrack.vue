@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
   <div class="list__item">
-    <SongImage :song="props.song" />
+    <TrackImage :song="props.song" />
     <TrackContent :song="props.song" />
     <TrackOptions :song="props.song" />
   </div>

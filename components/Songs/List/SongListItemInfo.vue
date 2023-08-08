@@ -6,9 +6,9 @@ const props = defineProps({
 
 <template>
   <div class="list__content">
-    <p href="#" class="list__title text-truncate">
+    <NuxtLink :to="'/controlroom/songs/' + props.song.id" class="list__title text-truncate">
       {{ props.song.title }}
-    </p>
+    </NuxtLink>
     <p class="list__subtitle">
       <span>{{ props.song.album || 'Unknown' }}</span> <br>
       <span>{{ formatDate(props.song.release_date, 'yyyy') }}</span>
@@ -17,12 +17,12 @@ const props = defineProps({
 
   <ul class="list__option">
     <li>
-      <a href="javascript:void(0);" role="button" class="d-inline-flex">
+      <a href="#" role="button" class="d-inline-flex">
         <i class="ri-play-line fs-5" /> 67k
       </a>
     </li>
     <li>
-      <a href="javascript:void(0);" role="button" class="d-inline-flex">
+      <a href="#" role="button" class="d-inline-flex">
         <i class="ri-arrow-down-line fs-5" /> 67k
       </a>
     </li>

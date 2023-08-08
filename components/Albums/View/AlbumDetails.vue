@@ -11,7 +11,7 @@ const props = defineProps({
     </div>
     <div class="col-1 d-none d-xl-block" />
     <div class="col-md-8 mt-2 mt-md-0">
-      <AlbumContent :album="props.album" />
+      <AlbumInfo :album="props.album" />
       <AlbumStats :album="props.album" />
       <AlbumActions :album="props.album" />
     </div>

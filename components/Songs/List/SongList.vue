@@ -11,7 +11,7 @@ const props = defineProps({
       </div>
       <div v-else>
         <div v-for="song in props.songs" :key="song.id" class="col-xl-12 mb-2">
-          <SongItem :song="song" />
+          <SongListItem :song="song" />
         </div>
       </div>
     </div>

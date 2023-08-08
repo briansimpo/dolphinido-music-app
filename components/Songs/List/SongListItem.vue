@@ -6,8 +6,8 @@ const props = defineProps({
 
 <template>
   <div class="list__item">
-    <SongImage :song="props.song" />
-    <SongContent :song="props.song" />
-    <SongDropdown :song="props.song" />
+    <SongListItemImage :song="props.song" />
+    <SongListItemInfo :song="props.song" />
+    <SongListItemActions :song="props.song" />
   </div>
 </template>

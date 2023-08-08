@@ -36,7 +36,7 @@ const { songs } = useUserSongs()
             </select>
           </div>
         </div>
-        <SongsList :songs="songs" />
+        <SongList :songs="songs" />
       </SectionBody>
     </SectionPanel>
   </div>
