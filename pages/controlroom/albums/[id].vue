@@ -18,7 +18,7 @@ const { album } = useGetAlbum(route.params.id)
         Album <span class="text-primary">Content</span>
       </SectionHead>
       <SectionBody>
-        <!--<AlbumDetails :album="album" />-->
+        <AlbumDetails :album="album" />
       </SectionBody>
     </SectionPanel>
 
