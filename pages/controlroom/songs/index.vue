@@ -36,17 +36,7 @@ const { songs } = useUserSongs()
             </select>
           </div>
         </div>
-
-        <SongList>
-          <div class="row">
-            <div v-for="song in songs" :key="song.id" class="col-xl-12 mb-2">
-              <SongItem :song="song" />
-            </div>
-            <div v-if="songs === null" class="list">
-              <NotFound>songs not found</NotFound>
-            </div>
-          </div>
-        </SongList>
+        <SongsList :songs="songs" />
       </SectionBody>
     </SectionPanel>
   </div>

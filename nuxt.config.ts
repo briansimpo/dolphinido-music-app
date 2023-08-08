@@ -28,7 +28,7 @@ export default defineNuxtConfig({
       ],
 
       link: [
-        { rel: 'icon', href: 'favicon.png' },
+        { rel: 'icon', href: '/favicon.png' },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;display=swap'

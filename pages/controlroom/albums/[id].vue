@@ -7,8 +7,8 @@ definePageMeta({
   }
 })
 
-// const route = useRoute()
-// const { album } = useGetAlbum(route.params.id)
+const route = useRoute()
+const { album } = useGetAlbum(route.params.id)
 
 </script>
 <template>
@@ -24,7 +24,7 @@ definePageMeta({
 
     <SectionPanel>
       <SectionBody>
-        <!--<AlbumTracks :album="album" /> -->
+        <AlbumTracks :album="album" />
       </SectionBody>
     </SectionPanel>
   </div>
