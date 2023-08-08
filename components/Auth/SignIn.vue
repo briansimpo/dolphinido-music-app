@@ -8,11 +8,6 @@
               <div class="text-center">
                 <h4>Signin to <span class="text-primary">Dolphinido</span></h4>
               </div>
-
-              <div class="mb-3 py-3">
-                <GoogleLogin />
-              </div>
-
               <FormLogin />
             </div>
           </div>
