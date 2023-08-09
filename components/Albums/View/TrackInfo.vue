@@ -1,0 +1,36 @@
+<script setup>
+const props = defineProps({
+  song: { type: Object, required: true }
+})
+</script>
+
+<template>
+  <div class="list__content">
+    <p href="#" class="list__title text-truncate">
+      {{ props.song.title }}
+    </p>
+    <p class="list__subtitle">
+      <span>{{ props.song.genre }}</span> <br>
+      <span>{{ formatDate(props.song.release_date, 'yyyy') }}</span>
+    </p>
+  </div>
+
+  <ul class="list__option">
+    <li>
+      <a href="#" role="button" class="d-inline-flex">
+        <i class="ri-play-line fs-5" /> {{ formatCount(props.song.plays) }}
+      </a>
+    </li>
+    <li>
+      <a href="#" role="button" class="d-inline-flex">
+        <i class="ri-arrow-down-line fs-5" /> {{ formatCount(props.song.downloads) }}
+      </a>
+    </li>
+    <li>{{ formatDuration(props.song.duration) }}</li>
+    <li>
+      <a href="javascript:void(0);" role="button" class="d-inline-flex">
+        <i class="ri-delete-bin-line" />
+      </a>
+    </li>
+  </ul>
+</template>
