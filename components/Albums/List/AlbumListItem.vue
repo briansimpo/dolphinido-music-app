@@ -19,9 +19,9 @@ const props = defineProps({
     </div>
     <ul class="list__option">
       <li>
-        <a href="#" role="button" class="d-inline-flex" aria-label="Favorite" data-favorite-id="100">
+        <a href="#" role="button" class="d-inline-flex" aria-label="Favorite">
           <i class="ri-heart-line heart-empty" />
-          <i class="ri-heart-fill heart-fill" />
+          <!--<i class="ri-heart-fill heart-fill" />-->
         </a>
       </li>
       <li class="dropstart d-inline-flex">
