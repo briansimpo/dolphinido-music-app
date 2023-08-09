@@ -13,7 +13,6 @@ const props = defineProps({
             <i class="ri-play-fill icon-play" />
             <!--<i class="ri-pause-fill icon-pause" />-->
           </button>
-          <span class="ps-2 fw-medium">234</span>
         </div>
       </li>
 
@@ -26,13 +25,13 @@ const props = defineProps({
         >
           <i class="ri-heart-line heart-empty" />
           <!--<i class="ri-heart-fill heart-fill" />-->
-          <span class="ps-2 fw-medium">121</span>
+          <span class="ps-2 fw-medium">{{ formatCount(album.likes) }}</span>
         </a>
       </li>
       <li>
         <a href="javascript:void(0);" role="button" class="text-dark d-flex align-items-center" aria-label="Download">
           <i class="ri-download-2-line" />
-          <span class="ps-2 fw-medium">24</span>
+          <span class="ps-2 fw-medium"> {{ formatCount(album.downloads) }}</span>
         </a>
       </li>
     </ul>
