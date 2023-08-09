@@ -6,8 +6,6 @@ definePageMeta({
 
 const { albums } = useUserAlbums()
 
-console.log(albums)
-
 </script>
 
 <template>
