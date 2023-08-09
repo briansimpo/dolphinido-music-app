@@ -10,7 +10,7 @@ export function useUserAlbums () {
   })
 
   const albums = computed(() => {
-    return data.value.data
+    return data.value
   })
 
   return {
