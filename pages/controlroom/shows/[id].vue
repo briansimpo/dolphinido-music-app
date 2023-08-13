@@ -8,23 +8,17 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { album } = useUserAlbum(route.params.id)
+const { show } = useUserShow(route.params.id)
 
 </script>
 <template>
   <div class="under-hero container">
     <SectionPanel>
       <SectionHead>
-        Album <span class="text-primary">Details</span>
+        Show <span class="text-primary">Details</span>
       </SectionHead>
       <SectionBody>
-        <AlbumDetails :album="album" />
-      </SectionBody>
-    </SectionPanel>
-
-    <SectionPanel>
-      <SectionBody>
-        <AlbumTracks :album="album" />
+        <ShowDetails :show="show" />
       </SectionBody>
     </SectionPanel>
   </div>

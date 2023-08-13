@@ -1,0 +1,25 @@
+<script setup>
+definePageMeta({
+  layout: 'artist',
+  middleware: 'artist'
+})
+</script>
+
+<template>
+  <div class="under-hero container">
+    <SectionPanel>
+      <SectionHead>
+        Add <span class="text-primary">Show</span>
+      </SectionHead>
+      <SectionBody>
+        <div class="col-lg-8 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <AddShow />
+            </div>
+          </div>
+        </div>
+      </SectionBody>
+    </SectionPanel>
+  </div>
+</template>

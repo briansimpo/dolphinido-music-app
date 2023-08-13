@@ -18,12 +18,12 @@ const props = defineProps({
   <ul class="list__option">
     <li>
       <a href="#" role="button" class="d-inline-flex">
-        <i class="ri-play-line fs-5" /> {{ formatCount(song.plays) }}
+        <i class="ri-play-line fs-5" /> {{ formatCount(props.song.plays) }}
       </a>
     </li>
     <li>
       <a href="#" role="button" class="d-inline-flex">
-        <i class="ri-arrow-down-line fs-5" /> {{ formatCount(song.downloads) }}
+        <i class="ri-arrow-down-line fs-5" /> {{ formatCount(props.song.downloads) }}
       </a>
     </li>
 

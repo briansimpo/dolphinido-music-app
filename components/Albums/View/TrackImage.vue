@@ -10,7 +10,7 @@ const { currentTrack, isPlaying, play, pause, playOrPause } = useAudioPlayer()
 
 <template>
   <div class="list__cover">
-    <img :src="fileUrl(props.song.cover_image)" :alt="props.song.id">
+    <img :src="fileUrl(props.song.cover_image)" alt="cover image">
     <button
       v-if="!isPlaying"
       class="btn btn-play btn-sm btn-default btn-icon rounded-pill"

@@ -20,12 +20,12 @@ const props = defineProps({
       <a href="#" role="button" class="d-inline-flex">
         <i v-if="props.album.likes <= 0" class="ri-heart-line heart-empty" />
         <i v-else class="ri-heart-fill heart-fill" />
-        {{ formatCount(album.likes) }}
+        {{ formatCount(props.album.likes) }}
       </a>
     </li>
     <li>
       <a href="#" role="button" class="d-inline-flex">
-        <i class="ri-arrow-down-line fs-5" /> {{ formatCount(album.downloads) }}
+        <i class="ri-arrow-down-line fs-5" /> {{ formatCount(props.album.downloads) }}
       </a>
     </li>
   </ul>

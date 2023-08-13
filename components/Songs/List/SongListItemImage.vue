@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
   <div class="list__cover">
-    <img :src="fileUrl(props.song.cover_image)" :alt="props.song.id">
+    <img :src="fileUrl(props.song.cover_image)" alt="cover image">
     <a
       href="javascript:void(0);"
       class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
