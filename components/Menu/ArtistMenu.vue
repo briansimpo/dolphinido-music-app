@@ -28,10 +28,10 @@
       </li>
 
       <li class="nav-item">
-        <a href="#" class="nav-link d-flex align-items-center">
+        <NuxtLink to="/controlroom/shows/add" class="nav-link d-flex align-items-center">
           <i class="ri-add-circle-line fs-5" />
           <span class="ps-3">Add Show</span>
-        </a>
+        </NuxtLink>
       </li>
 
       <li class="nav-item nav-item--head">

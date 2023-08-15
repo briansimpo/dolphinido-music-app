@@ -1,5 +1,5 @@
 <template>
-  <div class="dropzone text-center">
+  <div class="dropzone">
     <div class="dz-message">
       <i class="ri-upload-cloud-2-line fs-2 text-dark" />
       <span class="d-block fs-6 mt-2">
@@ -17,7 +17,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
   transition: all 0.3s ease;
   background: #fff;
 }

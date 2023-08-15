@@ -1,10 +1,9 @@
 export function useAddShow () {
   const config = useRuntimeConfig()
-  const { user, token } = useAuthUser()
+  const { token } = useAuthUser()
 
   /** @param {FormData} formData */
   const addShow = async (formData) => {
-    formData.append('artist_id', user.value.id)
     const { data } = await useFetch(config.public.apiBase + '/portal/shows', {
       method: 'POST',
       headers: {
