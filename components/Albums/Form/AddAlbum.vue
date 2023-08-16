@@ -38,7 +38,7 @@ function submitForm (event) {
       <div v-if="!coverImage" v-bind="getRootProps()">
         <FileDropzone>
           <input accept="image/*" v-bind="getInputProps()">
-          <span> Cover Image </span>
+          <span> Upload Album Cover </span>
         </FileDropzone>
       </div>
       <div v-else>
