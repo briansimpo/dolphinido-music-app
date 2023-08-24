@@ -1,52 +1,31 @@
 <script setup>
-
-import { useDropzone } from 'vue3-dropzone'
 import Dropdown from 'primevue/dropdown'
 import InputText from 'primevue/inputtext'
 import Calendar from 'primevue/calendar'
 
-const { genres } = useGenres()
-const { albumReleases } = useAlbumReleases()
-const { createAlbum } = useAlbumService()
-const { getRootProps, getInputProps } = useDropzone({ onDrop })
-
-const form = ref({
-  title: null,
-  genre: null,
-  album_release: null,
-  release_date: null,
-  cover_image: null
+const props = defineProps({
+  album: { type: Object, required: true }
 })
 
-function onDrop (acceptFiles) {
-  const allowedTypes = ['image/png', 'image/jpeg']
-  const uploadFile = acceptFiles[0]
-  if (allowedTypes.includes(uploadFile.type)) {
-    form.value.cover_image = uploadFile
-  } else {
-    alert('File should be valid image')
-  }
-}
+const { genres } = useGenres()
+const { albumReleases } = useAlbumReleases()
+const { updateAlbum } = useAlbumService()
+
+const form = ref({
+  title: props.album.title,
+  genre: props.album.genre_id,
+  album_release: props.album.album_release_id,
+  release_date: formatDate(props.album.release_date, 'yyyy-MM-dd')
+})
 
 function submitForm () {
-  createAlbum(form.value)
+  updateAlbum(props.album.id, form.value)
 }
 
 </script>
 
 <template>
   <form @submit.prevent="submitForm">
-    <div class="col-xl-6 mb-4">
-      <div v-if="!form.cover_image" v-bind="getRootProps()">
-        <FileDropzone>
-          <input accept="image/*" v-bind="getInputProps()">
-          <span> Upload Album Cover </span>
-        </FileDropzone>
-      </div>
-      <div v-else>
-        <ImagePreview :image="form.cover_image" />
-      </div>
-    </div>
     <div class="mb-3">
       <label for="title" class="form-label fw-medium">Title *</label>
       <InputText

@@ -1,4 +1,9 @@
 <script setup>
+import Dropdown from 'primevue/dropdown'
+import InputText from 'primevue/inputtext'
+import InputNumber from 'primevue/inputnumber'
+import Calendar from 'primevue/calendar'
+
 const props = defineProps({
   song: { type: Object, required: true }
 })
@@ -7,11 +12,16 @@ const { genres } = useGenres()
 const { albums } = useUserAlbums()
 const { updateSong } = useSongService()
 
-/** @param {Event} event */
-function submitForm (event) {
-  const form = event.currentTarget
-  const formData = new FormData(form)
-  updateSong(props.song.id, formData)
+const form = ref({
+  title: props.song.title,
+  track: props.song.track,
+  genre: props.song.genre_id,
+  album: props.song.album_id,
+  release_date: formatDate(props.song.release_date, 'yyyy-MM-dd')
+})
+
+function submitForm () {
+  updateSong(props.song.id, form.value)
 }
 
 </script>
@@ -20,46 +30,57 @@ function submitForm (event) {
   <form @submit.prevent="submitForm">
     <div class="mb-3">
       <label for="title" class="form-label fw-medium">Title *</label>
-      <input
+      <InputText
         id="title"
-        name="title"
+        v-model="form.title"
         type="text"
-        :value="props.song.title"
         class="form-control"
-        required
-      >
+      />
     </div>
 
     <div class="mb-3">
-      <label for="genre" class="form-label fw-medium select2">Genre *</label>
-      <select id="genre" name="genre" :value="props.song.genre_id" class="form-control" required>
-        <option v-for="genre in genres" :key="genre.id" :value="genre.id">
-          {{ genre.name }}
-        </option>
-      </select>
+      <label for="track" class="form-label fw-medium">Track Number *</label>
+      <InputNumber
+        v-model="form.track"
+        :use-grouping="false"
+        style="display: flex; width:auto"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="genre" class="form-label fw-medium">Genre *</label>
+      <Dropdown
+        v-model="form.genre"
+        filter
+        :options="genres"
+        option-value="id"
+        option-label="name"
+        placeholder="Select Genre"
+        class="form-control"
+      />
     </div>
 
     <div class="mb-3">
       <label for="release_date" class="form-label fw-medium">Release Date *</label>
-      <input
-        id="release_date"
-        name="release_date"
-        :value="formatDate(props.song.release_date)"
-        class="form-control"
-        required
-      >
+      <Calendar
+        v-model="form.release_date"
+        date-format="yy-mm-dd"
+        show-icon
+        style="display: flex; width:auto"
+      />
     </div>
 
     <div class="mb-3">
       <label for="album" class="form-label fw-medium select2">Album (Optional)</label>
-      <select id="album" name="album" :value="props.song.album_id" class="form-control">
-        <option value="">
-          None
-        </option>
-        <option v-for="album in albums" :key="album.id" :value="album.id">
-          {{ album.title }}
-        </option>
-      </select>
+      <Dropdown
+        v-model="form.album"
+        filter
+        :options="albums"
+        option-value="id"
+        option-label="title"
+        placeholder="Select Album"
+        class="form-control"
+      />
     </div>
 
     <div class="mt-3 col-lg-4 mx-auto">

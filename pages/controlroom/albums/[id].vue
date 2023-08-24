@@ -18,17 +18,11 @@ const { pending, album } = useUserAlbum(route.params.id)
         Album <span class="text-primary">Details</span>
       </SectionHead>
       <SectionBody>
-        <AlbumDetails :album="album" />
-      </SectionBody>
-    </SectionPanel>
-
-    <SectionPanel>
-      <SectionBody>
         <div v-if="pending">
           <StateLoader />
         </div>
         <div v-else>
-          <AlbumTracks :album="album" />
+          <AlbumDetails :album="album" />
         </div>
       </SectionBody>
     </SectionPanel>

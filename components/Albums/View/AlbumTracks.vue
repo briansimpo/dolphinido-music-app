@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="list">
+  <div class="list mt-8">
     <div class="row">
       <div v-if="props.album.tracks == null">
         <NotFound>tracks not found</NotFound>
