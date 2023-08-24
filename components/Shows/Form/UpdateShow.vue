@@ -1,5 +1,4 @@
 <script setup>
-import { useDropzone } from 'vue3-dropzone'
 import Dropdown from 'primevue/dropdown'
 import InputText from 'primevue/inputtext'
 import InputMask from 'primevue/inputmask'
@@ -8,55 +7,35 @@ import Calendar from 'primevue/calendar'
 import Textarea from 'primevue/textarea'
 import RadioButton from 'primevue/radiobutton'
 
-const { countries } = useCountries()
-const { createShow } = useShowService()
-const { getRootProps, getInputProps } = useDropzone({ onDrop })
-
-const form = ref({
-  title: null,
-  venue: null,
-  event_date: null,
-  event_time: null,
-  country: null,
-  city: null,
-  contact_email: null,
-  contact_number: null,
-  description: null,
-  is_free: 1,
-  ticket_price: null,
-  cover_image: null
+const props = defineProps({
+  show: { type: Object, required: true }
 })
 
-function onDrop (acceptFiles) {
-  const allowedTypes = ['image/png', 'image/jpeg']
-  const uploadFile = acceptFiles[0]
-  if (allowedTypes.includes(uploadFile.type)) {
-    form.value.cover_image = uploadFile
-  } else {
-    alert('File should be valid image')
-  }
-}
+const { countries } = useCountries()
+const { updateShow } = useShowService()
+
+const form = ref({
+  title: props.show.title,
+  venue: props.show.venue,
+  event_date: props.venue.event_date,
+  event_time: props.venue.event_time,
+  country: props.show.country,
+  city: props.show.city,
+  contact_email: props.show.contact_email,
+  contact_number: props.show.contact_number,
+  description: props.show.description,
+  is_free: props.show.is_free,
+  ticket_price: props.show.ticket_price
+})
 
 function submitForm () {
-  createShow(form.value)
+  updateShow(props.show.id, form.value)
 }
 
 </script>
 
 <template>
   <form @submit.prevent="submitForm">
-    <div class="col-xl-6 mb-4">
-      <div v-if="!form.cover_image" v-bind="getRootProps()">
-        <FileDropzone>
-          <input accept="image/*" v-bind="getInputProps()">
-          <span> Upload Cover Image </span>
-        </FileDropzone>
-      </div>
-      <div v-else>
-        <ImagePreview :image="form.cover_image" />
-      </div>
-    </div>
-
     <div class="row">
       <div class="col-sm-12 mb-4">
         <label for="title" class="form-label fw-medium">Title *</label>
