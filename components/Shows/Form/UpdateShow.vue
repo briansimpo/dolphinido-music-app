@@ -17,7 +17,7 @@ const { updateShow } = useShowService()
 const form = ref({
   title: props.show.title,
   venue: props.show.venue,
-  event_date: props.venue.event_date,
+  event_date: formatDate(props.show.event_date, 'yyyy-MM-dd'),
   event_time: props.venue.event_time,
   country: props.show.country,
   city: props.show.city,
