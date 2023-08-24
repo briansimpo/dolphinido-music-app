@@ -1,9 +1,9 @@
-export function useAddShow () {
+export function useShowService () {
   const config = useRuntimeConfig()
   const { token } = useAuthUser()
 
   /** @param {FormData} formData */
-  const addShow = async (formData) => {
+  const createShow = async (formData) => {
     const { data } = await useFetch(config.public.apiBase + '/portal/shows', {
       method: 'POST',
       headers: {
@@ -16,10 +16,11 @@ export function useAddShow () {
       alert('Oops! an error occured')
     } else {
       alert('Show added successfully')
+      return navigateTo('/controlroom/shows')
     }
   }
 
   return {
-    addShow
+    createShow
   }
 }

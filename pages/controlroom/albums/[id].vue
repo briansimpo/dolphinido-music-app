@@ -8,7 +8,7 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { album } = useUserAlbum(route.params.id)
+const { pending, album } = useUserAlbum(route.params.id)
 
 </script>
 <template>
@@ -24,7 +24,12 @@ const { album } = useUserAlbum(route.params.id)
 
     <SectionPanel>
       <SectionBody>
-        <AlbumTracks :album="album" />
+        <div v-if="pending">
+          <StateLoader />
+        </div>
+        <div v-else>
+          <AlbumTracks :album="album" />
+        </div>
       </SectionBody>
     </SectionPanel>
   </div>

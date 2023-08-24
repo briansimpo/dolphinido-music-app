@@ -8,7 +8,7 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { show } = useUserShow(route.params.id)
+const { pending, show } = useUserShow(route.params.id)
 
 </script>
 <template>
@@ -18,7 +18,12 @@ const { show } = useUserShow(route.params.id)
         Show <span class="text-primary">Details</span>
       </SectionHead>
       <SectionBody>
-        <ShowDetails :show="show" />
+        <div v-if="pending">
+          <StateLoader />
+        </div>
+        <div v-else>
+          <ShowDetails :show="show" />
+        </div>
       </SectionBody>
     </SectionPanel>
   </div>

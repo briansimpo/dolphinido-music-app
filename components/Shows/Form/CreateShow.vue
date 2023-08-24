@@ -17,14 +17,14 @@ function onDrop (acceptFiles) {
   }
 }
 
-const { addShow } = useAddShow()
+const { createShow } = useShowService()
 
 /** @param {Event} event */
 function submitForm (event) {
   const form = event.currentTarget
   const formData = new FormData(form)
   formData.append('cover_image', coverImage.value)
-  addShow(formData)
+  createShow(formData)
 }
 
 </script>

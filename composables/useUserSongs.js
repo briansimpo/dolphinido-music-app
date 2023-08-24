@@ -2,7 +2,7 @@ export function useUserSongs () {
   const config = useRuntimeConfig()
   const { token } = useAuthUser()
 
-  const { data } = useFetch(config.public.apiBase + '/portal/songs', {
+  const { pending, data } = useFetch(config.public.apiBase + '/portal/songs', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token.value}`
@@ -14,6 +14,7 @@ export function useUserSongs () {
   })
 
   return {
+    pending,
     songs
   }
 }

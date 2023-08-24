@@ -20,7 +20,7 @@ function submitForm (event) {
     </div>
     <div class="card mt-4">
       <div class="card-body">
-        <form class="mt-5" enctype="multipart/form-data" @submit.prevent="submitForm">
+        <form class="mt-5" @submit.prevent="submitForm">
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
@@ -40,7 +40,7 @@ function submitForm (event) {
             <div class="col-lg-6">
               <div class="mb-3">
                 <label for="artist_type" class="form-label fw-medium">Artist Type *</label>
-                <select id="artist_type" v-model="form.artist_type" class="form-control" required>
+                <select id="artist_type" name="artist_type" class="form-control" required>
                   <option v-for="type in artistTypes" :key="type.id" :value="type.id">
                     {{ type.name }}
                   </option>

@@ -1,5 +1,5 @@
 <script setup>
-const { shows } = useUserShows()
+const { pending, shows } = useUserShows()
 </script>
 <template>
   <div>
@@ -26,8 +26,8 @@ const { shows } = useUserShows()
     </div>
     <div class="list list--lg mt-5">
       <div class="row">
-        <div v-if="shows == null">
-          <NotFound>shows not found</NotFound>
+        <div v-if="pending">
+          <StateLoader />
         </div>
         <div v-else>
           <div v-for="show in shows" :key="show.id" class="col-xl-12">

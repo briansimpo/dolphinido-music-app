@@ -13,7 +13,7 @@ definePageMeta({
       </SectionHead>
       <SectionBody>
         <div class="col-lg-8 mx-auto">
-          <SongDropzone />
+          <UploadSong />
         </div>
       </SectionBody>
     </SectionPanel>

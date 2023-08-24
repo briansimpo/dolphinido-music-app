@@ -2,6 +2,7 @@
 const props = defineProps({
   song: { type: Object, required: true }
 })
+
 </script>
 
 <template>

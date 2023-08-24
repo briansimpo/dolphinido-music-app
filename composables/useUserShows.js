@@ -2,7 +2,7 @@ export function useUserShows () {
   const config = useRuntimeConfig()
   const { token } = useAuthUser()
 
-  const { data } = useFetch(config.public.apiBase + '/portal/shows', {
+  const { pending, data } = useFetch(config.public.apiBase + '/portal/shows', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token.value}`
@@ -14,6 +14,7 @@ export function useUserShows () {
   })
 
   return {
+    pending,
     shows
   }
 }

@@ -1,6 +1,6 @@
 <script setup>
 
-const { songs } = useUserSongs()
+const { pending, songs } = useUserSongs()
 
 </script>
 <template>
@@ -29,8 +29,8 @@ const { songs } = useUserSongs()
 
     <div class="list mt-5">
       <div class="row">
-        <div v-if="songs == null">
-          <NotFound>songs not found</NotFound>
+        <div v-if="pending">
+          <StateLoader />
         </div>
         <div v-else>
           <div v-for="song in songs" :key="song.id" class="col-xl-12 mb-2">

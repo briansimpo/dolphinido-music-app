@@ -20,14 +20,14 @@ function onDrop (acceptFiles) {
 
 const { genres } = useGenres()
 const { albumReleases } = useAlbumReleases()
-const { addAlbum } = useAddAlbum()
+const { createAlbum } = useAlbumService()
 
 /** @param {Event} event */
 function submitForm (event) {
   const form = event.currentTarget
   const formData = new FormData(form)
   formData.append('cover_image', coverImage.value)
-  addAlbum(formData)
+  createAlbum(formData)
 }
 
 </script>

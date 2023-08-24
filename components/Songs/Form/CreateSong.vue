@@ -7,7 +7,7 @@ const props = defineProps({
 
 const { genres } = useGenres()
 const { albums } = useUserAlbums()
-const { addSong } = useAddSong()
+const { createSong } = useSongService()
 
 const coverImage = ref(null)
 
@@ -29,7 +29,7 @@ function submitForm (event) {
   const formData = new FormData(form)
   formData.append('song_file', props.file)
   formData.append('cover_image', coverImage.value)
-  addSong(formData)
+  createSong(formData)
 }
 
 </script>

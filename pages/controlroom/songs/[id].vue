@@ -8,7 +8,7 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { song } = useUserSong(route.params.id)
+const { pending, song } = useUserSong(route.params.id)
 
 </script>
 <template>
@@ -18,7 +18,12 @@ const { song } = useUserSong(route.params.id)
         Song <span class="text-primary">Details</span>
       </SectionHead>
       <SectionBody>
-        <SongDetails :song="song" />
+        <div v-if="pending">
+          <StateLoader />
+        </div>
+        <div v-else>
+          <SongDetails :song="song" />
+        </div>
       </SectionBody>
     </SectionPanel>
   </div>

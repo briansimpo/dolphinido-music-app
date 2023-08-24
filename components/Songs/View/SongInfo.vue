@@ -19,7 +19,7 @@ const props = defineProps({
           class="text-dark d-flex align-items-center"
         >
           <i class="ri-album-line" />
-          <span class="ps-2 fw-medium">{{ props.song.album }}</span>
+          <span class="ps-2 fw-medium">{{ props.song.album || 'Unknown' }}</span>
         </a>
       </li>
 

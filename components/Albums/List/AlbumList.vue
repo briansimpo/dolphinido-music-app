@@ -1,5 +1,5 @@
 <script setup>
-const { albums } = useUserAlbums()
+const { pending, albums } = useUserAlbums()
 </script>
 <template>
   <div>
@@ -26,8 +26,8 @@ const { albums } = useUserAlbums()
     </div>
     <div class="list list--lg mt-5">
       <div class="row">
-        <div v-if="albums == null">
-          <NotFound>albums not found</NotFound>
+        <div v-if="pending">
+          <StateLoader />
         </div>
         <div v-else>
           <div v-for="album in albums" :key="album.id" class="col-xl-12">

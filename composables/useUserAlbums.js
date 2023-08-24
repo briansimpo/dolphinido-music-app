@@ -2,7 +2,7 @@ export function useUserAlbums () {
   const config = useRuntimeConfig()
   const { token } = useAuthUser()
 
-  const { data } = useFetch(config.public.apiBase + '/portal/albums', {
+  const { pending, data } = useFetch(config.public.apiBase + '/portal/albums', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token.value}`
@@ -14,6 +14,7 @@ export function useUserAlbums () {
   })
 
   return {
+    pending,
     albums
   }
 }

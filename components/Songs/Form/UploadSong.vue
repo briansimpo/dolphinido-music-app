@@ -35,7 +35,7 @@ function deleteFile () {
           </div>
         </div>
         <div class="card-body">
-          <SongUpload :file="file" />
+          <CreateSong :file="file" />
         </div>
       </div>
     </div>
