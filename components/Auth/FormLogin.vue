@@ -40,7 +40,9 @@ function submitForm () {
       <a href="#" class="fw-medium external">Forgot Password</a>
     </div>
     <div class="mb-5">
-      <input type="submit" class="btn btn-primary w-100" value="Login">
+      <Button type="submit" class="btn btn-primary w-100">
+        Login
+      </Button>
     </div>
     <p>
       Not registered yet?

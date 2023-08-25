@@ -17,7 +17,10 @@ const props = defineProps({
       </ul>
     </div>
     <div class="cover__image">
-      <img :src="fileUrl(props.album.cover_image)" alt="cover image">
+      <Image
+        :src="fileUrl(props.album.cover_image)"
+        alt="cover image"
+      />
     </div>
   </div>
 </template>

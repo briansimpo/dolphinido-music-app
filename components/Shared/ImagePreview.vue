@@ -8,7 +8,10 @@ const imagePreview = URL.createObjectURL(props.image)
 <template>
   <div class="cover">
     <div class="cover__image">
-      <img :src="imagePreview" alt="cover image">
+      <Image
+        :src="imagePreview"
+        alt="cover image"
+      />
     </div>
   </div>
 </template>

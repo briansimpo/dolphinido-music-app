@@ -9,6 +9,7 @@ import Calendar from 'primevue/calendar'
 import Textarea from 'primevue/textarea'
 import RadioButton from 'primevue/radiobutton'
 import Toast from 'primevue/toast'
+import Image from 'primevue/image'
 import ToastService from 'primevue/toastservice'
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -24,4 +25,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('RadioButton', RadioButton)
   nuxtApp.vueApp.component('Calendar', Calendar)
   nuxtApp.vueApp.component('Toast', Toast)
+  nuxtApp.vueApp.component('Image', Image)
 })

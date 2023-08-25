@@ -44,9 +44,9 @@ function submitForm () {
     </div>
 
     <div class="mt-3 col-lg-4 mx-auto">
-      <button type="submit" class="btn btn-primary w-100">
+      <Button type="submit" class="btn btn-primary w-100">
         Save
-      </button>
+      </Button>
     </div>
   </form>
 </template>

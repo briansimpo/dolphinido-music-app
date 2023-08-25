@@ -23,11 +23,11 @@ const showUpdateDialog = ref(false)
         </ul>
       </div>
       <div v-if="!showUpdateDialog" class="cover__image">
-        <img
+        <Image
           :src="fileUrl(props.song.cover_image)"
           alt="cover image"
           @click="showUpdateDialog = true"
-        >
+        />
       </div>
     </div>
 

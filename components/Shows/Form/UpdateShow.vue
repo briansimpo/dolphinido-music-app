@@ -37,6 +37,7 @@ function submitForm () {
           input-id="title"
           type="text"
           class="form-control"
+          required
         />
       </div>
     </div>
@@ -48,6 +49,7 @@ function submitForm () {
           input-id="venue"
           type="text"
           class="form-control"
+          required
         />
       </div>
     </div>
@@ -61,6 +63,7 @@ function submitForm () {
           date-format="yy-mm-dd"
           show-icon
           style="display: flex; width:auto"
+          required
         />
       </div>
       <div class="col-sm-6 mb-4">
@@ -72,6 +75,7 @@ function submitForm () {
           show-time
           time-only
           style="display: flex; width:auto"
+          required
         />
       </div>
     </div>
@@ -84,6 +88,7 @@ function submitForm () {
           input-id="email"
           type="email"
           class="form-control"
+          required
         />
       </div>
       <div class="col-sm-6 mb-4">
@@ -94,6 +99,7 @@ function submitForm () {
           type="phone"
           mask="(265) 999-999-999"
           class="form-control"
+          required
         />
       </div>
     </div>
@@ -108,6 +114,7 @@ function submitForm () {
           :options="countries"
           placeholder="Select Country"
           class="form-control"
+          required
         />
       </div>
       <div class="col-sm-6 mb-4">
@@ -118,6 +125,7 @@ function submitForm () {
           type="text"
           size="large"
           class="form-control"
+          required
         />
       </div>
     </div>
@@ -170,9 +178,9 @@ function submitForm () {
     </div>
 
     <div class="mt-3 col-lg-4 mx-auto">
-      <button type="submit" class="btn btn-primary w-100">
-        Submit
-      </button>
+      <Button type="submit" class="btn btn-primary w-100">
+        Save
+      </Button>
     </div>
   </form>
 </template>

@@ -30,6 +30,7 @@ function submitForm () {
         v-model="form.title"
         type="text"
         class="form-control"
+        required
       />
     </div>
 
@@ -43,6 +44,7 @@ function submitForm () {
         option-label="name"
         placeholder="Select Genre"
         class="form-control"
+        required
       />
     </div>
 
@@ -55,6 +57,7 @@ function submitForm () {
         option-label="name"
         placeholder="Select Album Release"
         class="form-control"
+        required
       />
     </div>
 
@@ -65,13 +68,14 @@ function submitForm () {
         date-format="yy-mm-dd"
         show-icon
         style="display: flex; width:auto"
+        required
       />
     </div>
 
     <div class="mt-3 col-lg-4 mx-auto">
-      <button type="submit" class="btn btn-primary w-100">
-        Submit
-      </button>
+      <Button type="submit" class="btn btn-primary w-100">
+        Save
+      </Button>
     </div>
   </form>
 </template>

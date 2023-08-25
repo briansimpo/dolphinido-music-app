@@ -1,7 +1,7 @@
 <script setup>
 definePageMeta({
   layout: 'artist',
-  middleware: 'artist',
+  middleware: ['artist', 'artist_show'],
   validate: (route) => {
     return route.params.id !== undefined
   }

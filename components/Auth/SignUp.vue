@@ -67,7 +67,9 @@ function submitForm () {
                   </div>
                 </div>
                 <div class="mb-5">
-                  <input type="submit" class="btn btn-primary w-100" value="Register">
+                  <Button type="submit" class="btn btn-primary w-100">
+                    Register
+                  </Button>
                 </div>
                 <p>
                   Do you have an Account?
