@@ -1,6 +1,7 @@
 export function useSongService () {
   const config = useRuntimeConfig()
   const { token } = useAuthUser()
+  const { successMessage, errorMessage } = useToastMessage()
 
   const createSong = async (formData) => {
     const { data } = await useFetch(config.public.apiBase + '/portal/songs', {
@@ -12,42 +13,48 @@ export function useSongService () {
     })
 
     if (data.value === null) {
-      alert('Oops! an error occured')
+      errorMessage()
     } else {
-      alert('Song created successfully')
+      successMessage()
       return navigateTo('/controlroom/songs')
     }
   }
 
   const updateSong = async (id, formData) => {
-    const { data } = await useFetch(config.public.apiBase + '/portal/songs/' + id, {
-      method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${token.value}`
-      },
-      body: formData
-    })
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/songs/' + id,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        },
+        body: formData
+      }
+    )
 
     if (data.value === null) {
-      alert('Oops! an error occured')
+      errorMessage()
     } else {
-      alert('Song updated successfully')
+      successMessage()
     }
   }
 
   const updateSongImage = async (id, formData) => {
-    const { data } = await useFetch(config.public.apiBase + '/portal/songs/' + id + '/cover_image', {
-      method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${token.value}`
-      },
-      body: formData
-    })
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/songs/' + id + '/cover_image',
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        },
+        body: formData
+      }
+    )
 
     if (data.value === null) {
-      alert('Oops! an error occured')
+      errorMessage()
     } else {
-      alert('Cover Image updated successfully')
+      successMessage()
     }
   }
 

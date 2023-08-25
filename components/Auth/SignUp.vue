@@ -2,11 +2,14 @@
 
 const { signup } = useSignUp()
 
-/** @param {Event} event */
-function submitForm (event) {
-  const form = event.currentTarget
-  const formData = new FormData(form)
-  signup(formData)
+const form = ref({
+  name: null,
+  email: null,
+  password: null
+})
+
+function submitForm () {
+  signup(form.value)
 }
 
 </script>
@@ -24,16 +27,35 @@ function submitForm (event) {
               <form class="mt-5" @submit.prevent="submitForm">
                 <div class="mb-3">
                   <label for="name" class="form-label fw-medium">Name</label>
-                  <input id="name" type="text" name="name" class="form-control" required>
+                  <InputText
+                    v-model="form.name"
+                    input-id="name"
+                    type="text"
+                    class="form-control"
+                    required
+                  />
                 </div>
 
                 <div class="mb-3">
                   <label for="username" class="form-label fw-medium">Email</label>
-                  <input id="username" type="email" name="username" class="form-control" required>
+                  <InputText
+                    v-model="form.username"
+                    input-id="username"
+                    type="email"
+                    class="form-control"
+                    required
+                  />
                 </div>
+
                 <div class="mb-2">
                   <label for="password" class="form-label fw-medium">Password</label>
-                  <input id="password" type="password" name="password" class="form-control" required>
+                  <InputText
+                    v-model="form.password"
+                    input-id="password"
+                    type="password"
+                    class="form-control"
+                    required
+                  />
                 </div>
 
                 <div class="mb-4">

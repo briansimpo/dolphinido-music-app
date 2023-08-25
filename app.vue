@@ -10,6 +10,7 @@ useHead({
     <NuxtLayout>
       <NuxtLoadingIndicator />
       <NuxtPage />
+      <Toast />
     </NuxtLayout>
   </div>
 </template>

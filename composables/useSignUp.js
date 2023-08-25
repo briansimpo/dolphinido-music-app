@@ -2,7 +2,6 @@ export function useSignUp () {
   const config = useRuntimeConfig()
   const { signin } = useSignIn()
 
-  /** @param {FormData} formData */
   const signup = async (formData) => {
     const { data } = await useFetch(config.public.auth.register, {
       method: 'POST',
@@ -10,8 +9,8 @@ export function useSignUp () {
     })
 
     if (data) {
-      const username = formData.get('username')
-      const password = formData.get('password')
+      const username = formData.username
+      const password = formData.password
       signin(username, password)
     } else {
       alert(data.value.message)

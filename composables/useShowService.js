@@ -1,6 +1,7 @@
 export function useShowService () {
   const config = useRuntimeConfig()
   const { token } = useAuthUser()
+  const { successMessage, errorMessage } = useToastMessage()
 
   const createShow = async (formData) => {
     const { data } = await useFetch(config.public.apiBase + '/portal/shows', {
@@ -12,9 +13,9 @@ export function useShowService () {
     })
 
     if (data.value === null) {
-      alert('Oops! an error occured')
+      errorMessage()
     } else {
-      alert('Show added successfully')
+      successMessage()
       return navigateTo('/controlroom/shows')
     }
   }
@@ -32,9 +33,9 @@ export function useShowService () {
     )
 
     if (data.value === null) {
-      alert('Oops! an error occured')
+      errorMessage()
     } else {
-      alert('Show updated successfully')
+      successMessage()
     }
   }
 

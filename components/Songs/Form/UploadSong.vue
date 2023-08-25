@@ -3,9 +3,8 @@ import { useDropzone } from 'vue3-dropzone'
 
 const file = ref(null)
 
-const { getRootProps, getInputProps } = useDropzone({
-  onDrop
-})
+const { errorMessage } = useToastMessage()
+const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 function onDrop (acceptFiles) {
   const allowedTypes = ['audio/mpeg']
@@ -13,7 +12,7 @@ function onDrop (acceptFiles) {
   if (allowedTypes.includes(uploadFile.type)) {
     file.value = uploadFile
   } else {
-    alert('File should be mp3')
+    errorMessage('File should be mp3')
   }
 }
 

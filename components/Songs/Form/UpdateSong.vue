@@ -1,8 +1,4 @@
 <script setup>
-import Dropdown from 'primevue/dropdown'
-import InputText from 'primevue/inputtext'
-import InputNumber from 'primevue/inputnumber'
-import Calendar from 'primevue/calendar'
 
 const props = defineProps({
   song: { type: Object, required: true }

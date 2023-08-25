@@ -1,11 +1,4 @@
 <script setup>
-import Dropdown from 'primevue/dropdown'
-import InputText from 'primevue/inputtext'
-import InputMask from 'primevue/inputmask'
-import InputNumber from 'primevue/inputnumber'
-import Calendar from 'primevue/calendar'
-import Textarea from 'primevue/textarea'
-import RadioButton from 'primevue/radiobutton'
 
 const props = defineProps({
   show: { type: Object, required: true }

@@ -1,13 +1,7 @@
 <script setup>
 import { useDropzone } from 'vue3-dropzone'
-import Dropdown from 'primevue/dropdown'
-import InputText from 'primevue/inputtext'
-import InputMask from 'primevue/inputmask'
-import InputNumber from 'primevue/inputnumber'
-import Calendar from 'primevue/calendar'
-import Textarea from 'primevue/textarea'
-import RadioButton from 'primevue/radiobutton'
 
+const { errorMessage } = useToastMessage()
 const { countries } = useCountries()
 const { createShow } = useShowService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
@@ -33,7 +27,7 @@ function onDrop (acceptFiles) {
   if (allowedTypes.includes(uploadFile.type)) {
     form.value.cover_image = uploadFile
   } else {
-    alert('File should be valid image')
+    errorMessage('File should be valid image')
   }
 }
 

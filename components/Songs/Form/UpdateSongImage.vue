@@ -5,6 +5,7 @@ const props = defineProps({
   song: { type: Object, required: true }
 })
 
+const { errorMessage } = useToastMessage()
 const { updateSongImage } = useSongService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
@@ -18,7 +19,7 @@ function onDrop (acceptFiles) {
   if (allowedTypes.includes(uploadFile.type)) {
     form.value.cover_image = uploadFile
   } else {
-    alert('File should be valid image')
+    errorMessage('File should be valid image')
   }
 }
 

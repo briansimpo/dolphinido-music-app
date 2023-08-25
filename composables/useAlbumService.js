@@ -1,6 +1,7 @@
 export function useAlbumService () {
   const config = useRuntimeConfig()
   const { token } = useAuthUser()
+  const { successMessage, errorMessage } = useToastMessage()
 
   const createAlbum = async (formData) => {
     const { data } = await useFetch(config.public.apiBase + '/portal/albums', {
@@ -12,9 +13,9 @@ export function useAlbumService () {
     })
 
     if (data.value === null) {
-      alert('Oops! an error occured')
+      errorMessage()
     } else {
-      alert('Album created successfully')
+      successMessage()
       return navigateTo('/controlroom/albums/' + data.value.id)
     }
   }
@@ -32,9 +33,9 @@ export function useAlbumService () {
     )
 
     if (data.value === null) {
-      alert('Oops! an error occured')
+      errorMessage()
     } else {
-      alert('Album updated successfully')
+      successMessage()
     }
   }
 

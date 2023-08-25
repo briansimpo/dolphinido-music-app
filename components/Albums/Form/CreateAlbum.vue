@@ -1,10 +1,8 @@
 <script setup>
 
 import { useDropzone } from 'vue3-dropzone'
-import Dropdown from 'primevue/dropdown'
-import InputText from 'primevue/inputtext'
-import Calendar from 'primevue/calendar'
 
+const { errorMessage } = useToastMessage()
 const { genres } = useGenres()
 const { albumReleases } = useAlbumReleases()
 const { createAlbum } = useAlbumService()
@@ -24,7 +22,7 @@ function onDrop (acceptFiles) {
   if (allowedTypes.includes(uploadFile.type)) {
     form.value.cover_image = uploadFile
   } else {
-    alert('File should be valid image')
+    errorMessage('File should be valid image')
   }
 }
 
