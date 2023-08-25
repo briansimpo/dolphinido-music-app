@@ -1,0 +1,51 @@
+<script setup>
+import { useDropzone } from 'vue3-dropzone'
+
+const props = defineProps({
+  song: { type: Object, required: true }
+})
+
+const { updateSongImage } = useSongService()
+const { getRootProps, getInputProps } = useDropzone({ onDrop })
+
+const form = ref({
+  cover_image: null
+})
+
+function onDrop (acceptFiles) {
+  const allowedTypes = ['image/png', 'image/jpeg']
+  const uploadFile = acceptFiles[0]
+  if (allowedTypes.includes(uploadFile.type)) {
+    form.value.cover_image = uploadFile
+  } else {
+    alert('File should be valid image')
+  }
+}
+
+function submitForm () {
+  updateSongImage(props.song.id, form.value)
+}
+
+</script>
+
+<template>
+  <form @submit.prevent="submitForm">
+    <div class="col-xl-12 mb-4">
+      <div v-if="!form.cover_image" v-bind="getRootProps()">
+        <FileDropzone>
+          <input accept="image/*" v-bind="getInputProps()">
+          <span>Upload Artwork </span>
+        </FileDropzone>
+      </div>
+      <div v-else>
+        <ImagePreview :image="form.cover_image" />
+      </div>
+    </div>
+
+    <div class="mt-3 col-lg-4 mx-auto">
+      <button type="submit" class="btn btn-primary w-100">
+        Save
+      </button>
+    </div>
+  </form>
+</template>

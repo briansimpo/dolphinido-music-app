@@ -11,7 +11,7 @@ export function useShowService () {
       body: formData
     })
 
-    if (data.value === undefined) {
+    if (data.value === null) {
       alert('Oops! an error occured')
     } else {
       alert('Show added successfully')
@@ -31,7 +31,7 @@ export function useShowService () {
       }
     )
 
-    if (data.value === undefined) {
+    if (data.value === null) {
       alert('Oops! an error occured')
     } else {
       alert('Show updated successfully')

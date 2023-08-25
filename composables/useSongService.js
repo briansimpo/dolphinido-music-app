@@ -11,7 +11,7 @@ export function useSongService () {
       body: formData
     })
 
-    if (data.value === undefined) {
+    if (data.value === null) {
       alert('Oops! an error occured')
     } else {
       alert('Song created successfully')
@@ -28,15 +28,32 @@ export function useSongService () {
       body: formData
     })
 
-    if (data.value === undefined) {
+    if (data.value === null) {
       alert('Oops! an error occured')
     } else {
       alert('Song updated successfully')
     }
   }
 
+  const updateSongImage = async (id, formData) => {
+    const { data } = await useFetch(config.public.apiBase + '/portal/songs/' + id + '/cover_image', {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${token.value}`
+      },
+      body: formData
+    })
+
+    if (data.value === null) {
+      alert('Oops! an error occured')
+    } else {
+      alert('Cover Image updated successfully')
+    }
+  }
+
   return {
     createSong,
-    updateSong
+    updateSong,
+    updateSongImage
   }
 }

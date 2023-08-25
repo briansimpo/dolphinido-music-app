@@ -11,7 +11,7 @@ export function useAlbumService () {
       body: formData
     })
 
-    if (data.value === undefined) {
+    if (data.value === null) {
       alert('Oops! an error occured')
     } else {
       alert('Album created successfully')
@@ -31,7 +31,7 @@ export function useAlbumService () {
       }
     )
 
-    if (data.value === undefined) {
+    if (data.value === null) {
       alert('Oops! an error occured')
     } else {
       alert('Album updated successfully')
