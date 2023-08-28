@@ -39,8 +39,28 @@ export function useAlbumService () {
     }
   }
 
+  const updateAlbumImage = async (id, formData) => {
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/albums/' + id + '/cover_image',
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        },
+        body: formData
+      }
+    )
+
+    if (data.value === null) {
+      errorMessage()
+    } else {
+      successMessage()
+    }
+  }
+
   return {
     createAlbum,
-    updateAlbum
+    updateAlbum,
+    updateAlbumImage
   }
 }
