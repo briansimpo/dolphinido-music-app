@@ -36,7 +36,7 @@ function submitForm () {
           v-model="form.title"
           input-id="title"
           type="text"
-          class="form-control"
+          class="w-full flex"
           required
         />
       </div>
@@ -48,7 +48,7 @@ function submitForm () {
           v-model="form.venue"
           input-id="venue"
           type="text"
-          class="form-control"
+          class="w-full flex"
           required
         />
       </div>
@@ -62,7 +62,7 @@ function submitForm () {
           input-id="date"
           date-format="yy-mm-dd"
           show-icon
-          style="display: flex; width:auto"
+          class="w-full flex"
           required
         />
       </div>
@@ -73,7 +73,7 @@ function submitForm () {
           input-id="time"
           show-icon
           time-only
-          style="display: flex; width:auto"
+          class="w-full flex"
           required
         />
       </div>
@@ -86,7 +86,7 @@ function submitForm () {
           v-model="form.contact_email"
           input-id="email"
           type="email"
-          class="form-control"
+          class="w-full flex"
           required
         />
       </div>
@@ -97,7 +97,7 @@ function submitForm () {
           input-id="phone"
           type="phone"
           mask="(265) 999-999-999"
-          class="form-control"
+          class="w-full flex"
           required
         />
       </div>
@@ -112,7 +112,7 @@ function submitForm () {
           filter
           :options="countries"
           placeholder="Select Country"
-          class="form-control"
+          class="w-full flex"
           required
         />
       </div>
@@ -122,8 +122,7 @@ function submitForm () {
           v-model="form.city"
           input-id="city"
           type="text"
-          size="large"
-          class="form-control"
+          class="w-full flex"
           required
         />
       </div>
@@ -137,7 +136,7 @@ function submitForm () {
           input-id="description"
           cols="30"
           rows="4"
-          class="form-control"
+          class="w-full flex"
           placeholder="Write few words about the show"
         />
       </div>
@@ -171,7 +170,7 @@ function submitForm () {
           v-model="form.ticket_price"
           input-id="ticket_price"
           :min-fraction-digits="2"
-          style="display: flex; width:auto"
+          class="w-full flex"
         />
       </div>
     </div>

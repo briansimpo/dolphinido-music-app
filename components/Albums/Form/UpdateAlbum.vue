@@ -29,7 +29,7 @@ function submitForm () {
         id="title"
         v-model="form.title"
         type="text"
-        class="form-control"
+        class="w-full flex"
         required
       />
     </div>
@@ -43,7 +43,7 @@ function submitForm () {
         option-value="id"
         option-label="name"
         placeholder="Select Genre"
-        class="form-control"
+        class="w-full flex"
         required
       />
     </div>
@@ -56,7 +56,7 @@ function submitForm () {
         option-value="id"
         option-label="name"
         placeholder="Select Album Release"
-        class="form-control"
+        class="w-full flex"
         required
       />
     </div>
@@ -67,7 +67,7 @@ function submitForm () {
         v-model="form.release_date"
         date-format="yy-mm-dd"
         show-icon
-        style="display: flex; width:auto"
+        class="w-full flex"
         required
       />
     </div>

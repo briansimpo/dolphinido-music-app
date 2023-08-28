@@ -9,7 +9,7 @@ const props = defineProps({
     <ul class="info-list mb-4">
       <li>
         <div class="d-flex align-items-center">
-          <button type="button" class="btn btn-icon btn-primary rounded-pill">
+          <button type="button" class="btn btn-sm btn-icon btn-primary rounded-pill">
             <i class="ri-play-fill icon-play" />
             <!--<i class="ri-pause-fill icon-pause" />-->
           </button>

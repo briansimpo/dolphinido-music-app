@@ -41,19 +41,19 @@ const handlePublish = () => {
   <div>
     <ul v-if="!props.song.is_published" class="info-list">
       <li>
-        <button class="btn btn-sm btn-primary rounded-pill" @click="showUpdateDialog = true">
+        <button class="btn btn-sm btn-primary" @click="showUpdateDialog = true">
           Update
         </button>
       </li>
 
       <li>
-        <button class="btn btn-sm btn-success rounded-pill" @click="handlePublish">
+        <button class="btn btn-sm btn-success" @click="handlePublish">
           Publish
         </button>
       </li>
 
       <li>
-        <button class="btn btn-sm btn-danger rounded-pill" @click="handleDelete">
+        <button class="btn btn-sm btn-danger" @click="handleDelete">
           Delete
         </button>
       </li>
