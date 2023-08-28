@@ -1,10 +1,12 @@
 <script setup>
 import Dialog from 'primevue/dialog'
+
 const props = defineProps({
   album: { type: Object, required: true }
 })
 
 const showUpdateDialog = ref(false)
+const { publishAlbum, deleteAlbum } = useAlbumService()
 </script>
 
 <template>
@@ -15,6 +17,7 @@ const showUpdateDialog = ref(false)
           Update
         </button>
       </li>
+
       <li>
         <a href="#" class="btn btn-sm btn-primary rounded-pill">
           Add Song
@@ -22,15 +25,15 @@ const showUpdateDialog = ref(false)
       </li>
 
       <li>
-        <a href="#" class="btn btn-sm btn-success rounded-pill">
+        <button class="btn btn-sm btn-success rounded-pill" @click="publishAlbum(props.album.id)">
           Publish
-        </a>
+        </button>
       </li>
 
       <li>
-        <a href="#" class="btn btn-sm btn-danger rounded-pill">
+        <button class="btn btn-sm btn-danger rounded-pill" @click="deleteAlbum(props.album.id)">
           Delete
-        </a>
+        </button>
       </li>
     </ul>
 

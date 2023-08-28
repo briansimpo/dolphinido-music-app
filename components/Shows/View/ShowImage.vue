@@ -18,6 +18,9 @@ const showUpdateDialog = ref(false)
             <span v-if="props.show.is_free" class="badge rounded-pill bg-primary p-2">Free</span>
           </li>
           <li>
+            <span v-if="props.show.is_published" class="badge rounded-pill bg-success p-2">Published</span>
+          </li>
+          <li>
             <span v-if="!props.show.is_published" class="badge rounded-pill bg-danger p-2">Hidden</span>
           </li>
         </ul>
@@ -28,6 +31,7 @@ const showUpdateDialog = ref(false)
           alt="cover image"
         />
         <button
+          v-if="!props.show.is_published"
           class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
           @click="showUpdateDialog = true"
         >

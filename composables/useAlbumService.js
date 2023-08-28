@@ -58,9 +58,47 @@ export function useAlbumService () {
     }
   }
 
+  const publishAlbum = async (id) => {
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/albums/' + id + '/publish',
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+
+    if (data.value === null) {
+      errorMessage()
+    } else {
+      successMessage()
+    }
+  }
+
+  const deleteAlbum = async (id) => {
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/albums/' + id,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+
+    if (data.value === null) {
+      errorMessage()
+    } else {
+      successMessage()
+    }
+  }
+
   return {
     createAlbum,
     updateAlbum,
-    updateAlbumImage
+    updateAlbumImage,
+    publishAlbum,
+    deleteAlbum
   }
 }
