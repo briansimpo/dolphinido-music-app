@@ -35,7 +35,7 @@ const props = defineProps({
         </a>
       </div>
       <div class="d-flex align-items-center mb-3">
-        <i class="ri-mail-open-fill fs-5" />
+        <i class="ri-mail-fill fs-5" />
         <a href="#" class="ms-3 text-dark">
           {{ props.show.contact_email }}
         </a>
@@ -43,7 +43,7 @@ const props = defineProps({
       <div class="d-flex align-items-center mb-3">
         <i class="ri-ticket-fill fs-5" />
         <a href="#" class="ms-3 text-dark">
-          {{ props.show.ticket_price || 'Free' }}
+          {{ formatCurrency(props.show.ticket_price) }}
         </a>
       </div>
     </div>
