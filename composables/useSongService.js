@@ -58,9 +58,48 @@ export function useSongService () {
     }
   }
 
+  const publishSong = async (id) => {
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/songs/' + id + '/publish',
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+
+    if (data.value === null) {
+      errorMessage()
+    } else {
+      successMessage()
+    }
+  }
+
+  const deleteSong = async (id) => {
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/songs/' + id,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+
+    if (data.value === null) {
+      errorMessage()
+    } else {
+      successMessage()
+      return navigateTo('/controlroom/songs')
+    }
+  }
+
   return {
     createSong,
     updateSong,
-    updateSongImage
+    updateSongImage,
+    publishSong,
+    deleteSong
   }
 }
