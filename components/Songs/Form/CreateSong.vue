@@ -32,7 +32,15 @@ function onDrop (acceptFiles) {
 }
 
 function submitForm () {
-  createSong(form.value)
+  const formData = new FormData()
+  formData.append('title', form.value.title)
+  formData.append('genre', form.value.genre)
+  formData.append('track', form.value.track)
+  formData.append('album', form.value.album)
+  formData.append('release_date', formatDate(form.value.release_date, 'yyyy-MM-dd'))
+  formData.append('cover_image', form.value.cover_image)
+  formData.append('song_file', form.value.song_file)
+  createSong(formData)
 }
 
 </script>
