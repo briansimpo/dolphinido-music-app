@@ -47,7 +47,7 @@ function submitForm () {
                   />
                 </div>
 
-                <div class="mb-2">
+                <div class="mb-3">
                   <label for="password" class="form-label fw-medium">Password</label>
                   <InputText
                     v-model="form.password"
