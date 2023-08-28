@@ -1,11 +1,39 @@
 <script setup>
 import Dialog from 'primevue/dialog'
+import { useConfirm } from 'primevue/useconfirm'
 
 const props = defineProps({
   song: { type: Object, required: true }
 })
 
 const showUpdateDialog = ref(false)
+
+const { publishSong, deleteSong } = useSongService()
+
+const confirm = useConfirm()
+
+const handleDelete = () => {
+  confirm.require({
+    message: 'Are you sure you want to delete ?',
+    header: 'Confirmation',
+    acceptClass: 'p-button-danger',
+    accept: () => {
+      deleteSong(props.song.id)
+    },
+    reject: () => {}
+  })
+}
+
+const handlePublish = () => {
+  confirm.require({
+    message: 'Are you sure you want to publish ?',
+    header: 'Confirmation',
+    accept: () => {
+      publishSong(props.song.id)
+    },
+    reject: () => {}
+  })
+}
 
 </script>
 
@@ -19,15 +47,15 @@ const showUpdateDialog = ref(false)
       </li>
 
       <li>
-        <a href="#" class="btn btn-sm btn-success rounded-pill">
+        <button class="btn btn-sm btn-success rounded-pill" @click="handlePublish">
           Publish
-        </a>
+        </button>
       </li>
 
       <li>
-        <a href="#" class="btn btn-sm btn-danger rounded-pill">
+        <button class="btn btn-sm btn-danger rounded-pill" @click="handleDelete">
           Delete
-        </a>
+        </button>
       </li>
     </ul>
     <Dialog
