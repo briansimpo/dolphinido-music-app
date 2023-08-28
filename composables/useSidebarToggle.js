@@ -13,6 +13,12 @@ export function useSidebarToggle () {
     }
   }
 
+  function openSidebar () {
+    showSidebar.value = true
+    const body = document.getElementsByTagName('body')[0]
+    body.setAttribute('data-sidebar-toggle', true)
+  }
+
   function closeSidebar () {
     showSidebar.value = false
     const body = document.getElementsByTagName('body')[0]
@@ -21,6 +27,7 @@ export function useSidebarToggle () {
 
   return {
     toggleSidebar,
+    openSidebar,
     closeSidebar
   }
 }
