@@ -14,7 +14,7 @@ const confirm = useConfirm()
 
 const handleDelete = () => {
   confirm.require({
-    message: 'Are you sure you want delete ?',
+    message: 'Are you sure you want to delete ?',
     header: 'Confirmation',
     acceptClass: 'p-button-danger',
     accept: () => {
@@ -26,7 +26,7 @@ const handleDelete = () => {
 
 const handlePublish = () => {
   confirm.require({
-    message: 'Are you sure you want publish ?',
+    message: 'Are you sure you want to publish ?',
     header: 'Confirmation',
     accept: () => {
       publishAlbum(props.album.id)
