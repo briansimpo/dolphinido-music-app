@@ -11,6 +11,7 @@ useHead({
       <NuxtLoadingIndicator />
       <NuxtPage />
       <Toast />
+      <ConfirmDialog />
     </NuxtLayout>
   </div>
 </template>
