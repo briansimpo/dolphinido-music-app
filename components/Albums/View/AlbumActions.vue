@@ -46,12 +46,6 @@ const handlePublish = () => {
       </li>
 
       <li>
-        <a href="#" class="btn btn-sm btn-primary rounded-pill">
-          Add Song
-        </a>
-      </li>
-
-      <li>
         <button class="btn btn-sm btn-success rounded-pill" @click="handlePublish">
           Publish
         </button>
