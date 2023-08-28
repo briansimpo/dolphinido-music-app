@@ -37,7 +37,12 @@ function submitForm () {
       <div v-if="!form.cover_image" v-bind="getRootProps()">
         <FileDropzone>
           <input accept="image/*" v-bind="getInputProps()">
-          <span>Upload Album Cover </span>
+          <span class="d-block fs-6 mt-2 mb-2">
+            Drag & Drop or click to Upload
+          </span>
+          <button type="button" class="btn btn-light-primary">
+            Upload album cover
+          </button>
         </FileDropzone>
       </div>
       <div v-else>

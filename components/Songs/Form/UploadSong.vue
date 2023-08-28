@@ -43,7 +43,12 @@ function deleteFile () {
         <div class="card-body">
           <FileDropzone>
             <input accept="mp3" v-bind="getInputProps()">
-            <span> Click to Upload your Song </span>
+            <span class="d-block fs-6 mt-2 mb-2">
+              Drag & Drop or click to Upload
+            </span>
+            <button type="button" class="btn btn-light-primary">
+              Upload song
+            </button>
           </FileDropzone>
         </div>
       </div>

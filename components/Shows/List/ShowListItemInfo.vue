@@ -5,23 +5,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="list__content">
-    <NuxtLink :to="'/controlroom/shows/' + props.show.id" class="list__title text-truncate">
+  <div class="cover__foot mt-3 px-2">
+    <NuxtLink :to="'/controlroom/shows/' + props.show.id" class="cover__title fs-6 mb-3">
       {{ props.show.title }}
     </NuxtLink>
+    <p class="cover__subtitle d-flex mb-2">
+      <i class="ri-map-pin-fill fs-6" />
+      <span class="ms-1 fw-semi-bold">{{ props.show.venue }}, {{ props.show.city }} - {{ props.show.country }}</span>
+    </p>
   </div>
-
-  <ul class="list__option">
-    <li>
-      <a href="#" role="button" class="d-inline-flex">
-        <i class="ri-heart-line heart-empty" />
-        00
-      </a>
-    </li>
-    <li>
-      <a href="#" role="button" class="d-inline-flex">
-        <i class="ri-arrow-down-line fs-5" /> 00
-      </a>
-    </li>
-  </ul>
 </template>

@@ -30,8 +30,8 @@ const { pending, shows } = useUserShows()
           <StateLoader />
         </div>
         <div v-else>
-          <div v-for="show in shows" :key="show.id" class="col-xl-12">
-            <ShowListItem :show="show" class="mb-2" />
+          <div v-for="show in shows" :key="show.id">
+            <ShowListItem :show="show" />
           </div>
         </div>
       </div>

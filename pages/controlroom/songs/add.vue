@@ -12,7 +12,7 @@ definePageMeta({
         Add <span class="text-primary">Song</span>
       </SectionHead>
       <SectionBody>
-        <div class="col-lg-8 mx-auto">
+        <div class="col-lg-6 mx-auto">
           <UploadSong />
         </div>
       </SectionBody>

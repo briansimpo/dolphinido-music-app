@@ -12,7 +12,7 @@
 <style lang="scss" scoped>
 
 .dropzone {
-  border: 2px dashed #ccc;
+  border: 1px dashed #ccc;
   border-radius: 8px;
   display: flex;
   align-items: center;

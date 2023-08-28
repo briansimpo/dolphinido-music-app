@@ -5,8 +5,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="list__item">
-    <ShowListItemImage :show="props.show" />
-    <ShowListItemInfo :show="props.show" />
+  <div class="col-xl-4 col-md-6">
+    <div class="cover cover--round">
+      <ShowListItemImage :show="props.show" />
+      <ShowListItemInfo :show="props.show" />
+    </div>
   </div>
 </template>

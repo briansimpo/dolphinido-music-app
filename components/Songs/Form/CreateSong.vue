@@ -47,11 +47,16 @@ function submitForm () {
 
 <template>
   <form @submit.prevent="submitForm">
-    <div class="col-xl-6 mb-4">
+    <div class="col-xl-12 mb-4">
       <div v-if="!form.cover_image" v-bind="getRootProps()">
         <FileDropzone>
           <input accept="image/*" v-bind="getInputProps()">
-          <span>Upload Artwork </span>
+          <span class="d-block fs-6 mt-2 mb-2">
+            Drag & Drop or click to Upload
+          </span>
+          <button type="button" class="btn btn-light-primary">
+            Upload artwork
+          </button>
         </FileDropzone>
       </div>
       <div v-else>

@@ -43,7 +43,7 @@ function submitForm () {
   formData.append('contact_number', form.value.contact_number)
   formData.append('description', form.value.description)
   formData.append('is_free', form.value.is_free)
-  formData.append('ticket_price', form.value.ticket_pric)
+  formData.append('ticket_price', form.value.ticket_price)
   formData.append('cover_image', form.value.cover_image)
   createShow(formData)
 }
@@ -52,11 +52,16 @@ function submitForm () {
 
 <template>
   <form @submit.prevent="submitForm">
-    <div class="col-xl-6 mb-4">
+    <div class="col-xl-12 mb-4">
       <div v-if="!form.cover_image" v-bind="getRootProps()">
         <FileDropzone>
           <input accept="image/*" v-bind="getInputProps()">
-          <span> Upload Cover Image </span>
+          <span class="d-block fs-6 mt-2 mb-2">
+            Drag & Drop or click to Upload
+          </span>
+          <button type="button" class="btn btn-light-primary">
+            Upload cover image
+          </button>
         </FileDropzone>
       </div>
       <div v-else>
@@ -76,6 +81,7 @@ function submitForm () {
         />
       </div>
     </div>
+
     <div class="row">
       <div class="col-sm-12 mb-4">
         <label for="venue" class="form-label fw-medium">Venue *</label>
