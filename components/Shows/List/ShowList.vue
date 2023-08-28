@@ -32,7 +32,7 @@ const { pending, shows } = useUserShows()
     <div v-else class="list list--lg mt-5">
       <div class="row">
         <div v-for="show in shows" :key="show.id" class="col-xl-4">
-          <ShowListItem :show="show" />
+          <ShowListItem :show="show" class="mb-4" />
         </div>
       </div>
     </div>
