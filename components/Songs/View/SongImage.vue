@@ -11,7 +11,7 @@ const showUpdateDialog = ref(false)
 
 <template>
   <div>
-    <div class="cover cover--round">
+    <div v-if="!showUpdateDialog" class="cover cover--round">
       <div class="cover__head">
         <ul class="cover__label d-flex">
           <li>
@@ -22,12 +22,17 @@ const showUpdateDialog = ref(false)
           </li>
         </ul>
       </div>
-      <div v-if="!showUpdateDialog" class="cover__image">
+      <div class="cover__image">
         <Image
           :src="fileUrl(props.song.cover_image)"
           alt="cover image"
-          @click="showUpdateDialog = true"
         />
+        <button
+          class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
+          @click="showUpdateDialog = true"
+        >
+          <i class="ri-pencil-fill" />
+        </button>
       </div>
     </div>
 
