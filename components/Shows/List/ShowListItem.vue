@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  ahow: { type: Object, required: true }
+  show: { type: Object, required: true }
 })
 </script>
 
