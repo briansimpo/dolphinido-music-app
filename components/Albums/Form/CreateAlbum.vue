@@ -56,6 +56,7 @@ function submitForm () {
         <ImagePreview :image="form.cover_image" />
       </div>
     </div>
+
     <div class="mb-3">
       <label for="title" class="form-label fw-medium">Title *</label>
       <InputText
