@@ -37,10 +37,10 @@ function submitForm () {
                 </div>
 
                 <div class="mb-3">
-                  <label for="username" class="form-label fw-medium">Email</label>
+                  <label for="email" class="form-label fw-medium">Email</label>
                   <InputText
-                    v-model="form.username"
-                    input-id="username"
+                    v-model="form.email"
+                    input-id="email"
                     type="email"
                     class="form-control"
                     required
