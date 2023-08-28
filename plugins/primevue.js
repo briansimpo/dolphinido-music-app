@@ -10,11 +10,14 @@ import Textarea from 'primevue/textarea'
 import RadioButton from 'primevue/radiobutton'
 import Toast from 'primevue/toast'
 import Image from 'primevue/image'
+import ConfirmDialog from 'primevue/confirmdialog'
 import ToastService from 'primevue/toastservice'
+import ConfirmationService from 'primevue/confirmationservice'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true })
   nuxtApp.vueApp.use(ToastService)
+  nuxtApp.vueApp.use(ConfirmationService)
   nuxtApp.vueApp.component('Button', Button)
   nuxtApp.vueApp.component('InputText', InputText)
   nuxtApp.vueApp.component('InputMask', InputMask)
@@ -26,4 +29,5 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('Calendar', Calendar)
   nuxtApp.vueApp.component('Toast', Toast)
   nuxtApp.vueApp.component('Image', Image)
+  nuxtApp.vueApp.component('ConfirmDialog', ConfirmDialog)
 })
