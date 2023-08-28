@@ -113,7 +113,6 @@ function submitForm () {
           v-model="form.event_time"
           input-id="time"
           show-icon
-          show-time
           time-only
           style="display: flex; width:auto"
           required
