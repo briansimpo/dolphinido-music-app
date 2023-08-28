@@ -24,7 +24,9 @@ function onDrop (acceptFiles) {
 }
 
 function submitForm () {
-  updateSongImage(props.song.id, form.value)
+  const formData = new FormData()
+  formData.append('cover_image', form.value.cover_image)
+  updateSongImage(props.song.id, formData)
 }
 
 </script>
