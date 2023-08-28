@@ -58,9 +58,48 @@ export function useShowService () {
     }
   }
 
+  const publishShow = async (id) => {
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/shows/' + id + '/publish',
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+
+    if (data.value === null) {
+      errorMessage()
+    } else {
+      successMessage()
+    }
+  }
+
+  const deleteShow = async (id) => {
+    const { data } = await useFetch(
+      config.public.apiBase + '/portal/shows/' + id,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+
+    if (data.value === null) {
+      errorMessage()
+    } else {
+      successMessage()
+      return navigateTo('/controlroom/shows')
+    }
+  }
+
   return {
     createShow,
     updateShow,
-    updateShowImage
+    updateShowImage,
+    publishShow,
+    deleteShow
   }
 }
