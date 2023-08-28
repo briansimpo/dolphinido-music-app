@@ -27,7 +27,13 @@ function onDrop (acceptFiles) {
 }
 
 function submitForm () {
-  createAlbum(form.value)
+  const formData = new FormData()
+  formData.append('title', form.value.title)
+  formData.append('genre', form.value.genre)
+  formData.append('album_release', form.value.album_release)
+  formData.append('release_date', formatDate(form.value.release_date, 'yyyy-MM-dd'))
+  formData.append('cover_image', form.value.cover_image)
+  createAlbum(formData)
 }
 
 </script>
