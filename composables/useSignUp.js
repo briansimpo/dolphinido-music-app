@@ -9,9 +9,9 @@ export function useSignUp () {
     })
 
     if (data) {
-      const username = formData.username
+      const email = formData.email
       const password = formData.password
-      signin(username, password)
+      signin(email, password)
     } else {
       alert(data.value.message)
     }
