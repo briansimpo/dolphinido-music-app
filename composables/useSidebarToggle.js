@@ -13,7 +13,14 @@ export function useSidebarToggle () {
     }
   }
 
+  function closeSidebar () {
+    showSidebar.value = false
+    const body = document.getElementsByTagName('body')[0]
+    body.removeAttribute('data-sidebar-toggle')
+  }
+
   return {
-    toggleSidebar
+    toggleSidebar,
+    closeSidebar
   }
 }
