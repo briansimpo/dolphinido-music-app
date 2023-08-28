@@ -91,6 +91,7 @@ export function useAlbumService () {
       errorMessage()
     } else {
       successMessage()
+      return navigateTo('/controlroom/albums')
     }
   }
 
