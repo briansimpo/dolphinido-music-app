@@ -8,6 +8,8 @@ import InputNumber from 'primevue/inputnumber'
 import Calendar from 'primevue/calendar'
 import Textarea from 'primevue/textarea'
 import RadioButton from 'primevue/radiobutton'
+import Checkbox from "primevue/checkbox"
+import MultiSelect from 'primevue/multiselect'
 import Toast from 'primevue/toast'
 import Image from 'primevue/image'
 import ConfirmDialog from 'primevue/confirmdialog'
@@ -26,6 +28,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('Textarea', Textarea)
   nuxtApp.vueApp.component('Dropdown', Dropdown)
   nuxtApp.vueApp.component('RadioButton', RadioButton)
+  nuxtApp.vueApp.component('MultiSelect', MultiSelect)
+  nuxtApp.vueApp.component('Checkbox', Checkbox)
   nuxtApp.vueApp.component('Calendar', Calendar)
   nuxtApp.vueApp.component('Toast', Toast)
   nuxtApp.vueApp.component('Image', Image)
