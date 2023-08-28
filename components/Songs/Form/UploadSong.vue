@@ -47,7 +47,7 @@ function deleteFile () {
               Drag & Drop or click to Upload
             </span>
             <button type="button" class="btn btn-light-primary">
-              Upload song
+              Upload Song
             </button>
           </FileDropzone>
         </div>
