@@ -32,7 +32,20 @@ function onDrop (acceptFiles) {
 }
 
 function submitForm () {
-  createShow(form.value)
+  const formData = new FormData()
+  formData.append('title', form.value.title)
+  formData.append('venue', form.value.venue)
+  formData.append('event_date', formatDate(form.value.event_date, 'yyyy-MM-dd'))
+  formData.append('event_time', form.value.event_time)
+  formData.append('country', form.value.country)
+  formData.append('city', form.value.city)
+  formData.append('contact_email', form.value.contact_email)
+  formData.append('contact_number', form.value.contact_number)
+  formData.append('description', form.value.description)
+  formData.append('is_free', form.value.is_free)
+  formData.append('ticket_price', form.value.ticket_pric)
+  formData.append('cover_image', form.value.cover_image)
+  createShow(formData)
 }
 
 </script>
