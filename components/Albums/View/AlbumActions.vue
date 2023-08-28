@@ -1,12 +1,39 @@
 <script setup>
 import Dialog from 'primevue/dialog'
+import { useConfirm } from 'primevue/useconfirm'
 
 const props = defineProps({
   album: { type: Object, required: true }
 })
 
 const showUpdateDialog = ref(false)
+
 const { publishAlbum, deleteAlbum } = useAlbumService()
+
+const confirm = useConfirm()
+
+const handleDelete = () => {
+  confirm.require({
+    message: 'Are you sure you want delete ?',
+    header: 'Confirmation',
+    acceptClass: 'p-button-danger',
+    accept: () => {
+      deleteAlbum(props.album.id)
+    },
+    reject: () => {}
+  })
+}
+
+const handlePublish = () => {
+  confirm.require({
+    message: 'Are you sure you want publish ?',
+    header: 'Confirmation',
+    accept: () => {
+      publishAlbum(props.album.id)
+    },
+    reject: () => {}
+  })
+}
 </script>
 
 <template>
@@ -25,13 +52,13 @@ const { publishAlbum, deleteAlbum } = useAlbumService()
       </li>
 
       <li>
-        <button class="btn btn-sm btn-success rounded-pill" @click="publishAlbum(props.album.id)">
+        <button class="btn btn-sm btn-success rounded-pill" @click="handlePublish">
           Publish
         </button>
       </li>
 
       <li>
-        <button class="btn btn-sm btn-danger rounded-pill" @click="deleteAlbum(props.album.id)">
+        <button class="btn btn-sm btn-danger rounded-pill" @click="handleDelete">
           Delete
         </button>
       </li>
