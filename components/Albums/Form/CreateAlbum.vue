@@ -48,7 +48,7 @@ function submitForm () {
             Drag & Drop or click to Upload
           </span>
           <button type="button" class="btn btn-light-primary">
-            Upload album cover
+            Upload Album Cover
           </button>
         </FileDropzone>
       </div>

@@ -27,7 +27,7 @@ const { pending, songs } = useUserSongs()
       </div>
     </div>
 
-    <div class="list mt-5">
+    <div class="list list--lg mt-5">
       <div class="row">
         <div v-if="pending">
           <StateLoader />

@@ -2,11 +2,11 @@
 import { useDropzone } from 'vue3-dropzone'
 
 const props = defineProps({
-  album: { type: Object, required: true }
+  show: { type: Object, required: true }
 })
 
 const { errorMessage } = useToastMessage()
-const { updateAlbumImage } = useAlbumService()
+const { updateShowImage } = useShowService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({
@@ -26,7 +26,7 @@ function onDrop (acceptFiles) {
 function submitForm () {
   const formData = new FormData()
   formData.append('cover_image', form.value.cover_image)
-  updateAlbumImage(props.album.id, formData)
+  updateShowImage(props.show.id, formData)
 }
 
 </script>
@@ -41,7 +41,7 @@ function submitForm () {
             Drag & Drop or click to Upload
           </span>
           <button type="button" class="btn btn-light-primary">
-            Upload Album Cover
+            Upload Cover Image
           </button>
         </FileDropzone>
       </div>

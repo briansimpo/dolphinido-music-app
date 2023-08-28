@@ -24,15 +24,15 @@ const { pending, shows } = useUserShows()
         </select>
       </div>
     </div>
-    <div class="list list--lg mt-5">
+
+    <div v-if="pending">
+      <StateLoader />
+    </div>
+
+    <div v-else class="list list--lg mt-5">
       <div class="row">
-        <div v-if="pending">
-          <StateLoader />
-        </div>
-        <div v-else>
-          <div v-for="show in shows" :key="show.id">
-            <ShowListItem :show="show" />
-          </div>
+        <div v-for="show in shows" :key="show.id" class="col-xl-4">
+          <ShowListItem :show="show" />
         </div>
       </div>
     </div>

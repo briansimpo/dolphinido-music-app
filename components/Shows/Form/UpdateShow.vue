@@ -11,7 +11,7 @@ const form = ref({
   title: props.show.title,
   venue: props.show.venue,
   event_date: formatDate(props.show.event_date, 'yyyy-MM-dd'),
-  event_time: props.venue.event_time,
+  event_time: props.show.event_time,
   country: props.show.country,
   city: props.show.city,
   contact_email: props.show.contact_email,
