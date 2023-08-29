@@ -47,7 +47,7 @@ const handlePublish = () => {
 
       <li>
         <NuxtLink :to=" '/controlroom/albums/'+ props.album.id +'/tracks' " class="btn btn-sm btn-primary">
-          Add Song
+          Add Tracks
         </NuxtLink>
       </li>
 
