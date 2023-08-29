@@ -2,7 +2,7 @@
 import { OnClickOutside } from '@vueuse/components'
 
 const { toggleSidebar, closeSidebar } = useSidebarToggle()
-const { authenticated, user } = useAuthUser()
+const { authenticated, user } = useAuthService()
 </script>
 
 <template>
@@ -49,18 +49,18 @@ const { authenticated, user } = useAuthUser()
 
 <style>
 .sidebar-body{
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 /* width */
 .sidebar-body::-webkit-scrollbar {
-    width: 4px;
+  width: 4px;
 }
 
 /* Handle */
 .sidebar-body::-webkit-scrollbar-thumb {
-    background: rgb(197, 193, 193);
-    border-radius: 2px;
+  background: rgb(197, 193, 193);
+  border-radius: 2px;
 }
 
 </style>
