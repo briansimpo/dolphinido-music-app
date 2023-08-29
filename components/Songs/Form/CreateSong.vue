@@ -111,7 +111,7 @@ function submitForm () {
     </div>
 
     <div class="mb-3">
-      <label for="album" class="form-label fw-medium select2">Album (Optional)</label>
+      <label for="album" class="form-label fw-medium">Album (Optional)</label>
       <Dropdown
         v-model="form.album"
         filter
