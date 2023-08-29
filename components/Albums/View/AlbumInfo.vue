@@ -33,7 +33,7 @@ const props = defineProps({
       <li>
         <a href="javascript:void(0);" role="button" class="text-dark d-flex align-items-center" aria-label="Download">
           <i class="ri-play-list-line" />
-          <span class="ps-2 fw-medium">{{ props.album.track_count }} Songs</span>
+          <span class="ps-2 fw-medium">{{ props.album.track_count }} Tracks</span>
         </a>
       </li>
       <li>
