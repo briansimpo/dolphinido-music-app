@@ -26,12 +26,9 @@ function deleteFile () {
     <div v-if="file">
       <div class="card">
         <div class="card-header">
-          <div class="file-item">
-            <span>{{ file.name }}</span>
-            <button class="btn btn-danger" @click="deleteFile">
-              Cancel
-            </button>
-          </div>
+          <button class="btn btn-danger" @click="deleteFile">
+            Cancel
+          </button>
         </div>
         <div class="card-body">
           <CreateSong :file="file" />
@@ -55,17 +52,3 @@ function deleteFile () {
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.file-item {
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgb(255 167 18 / 20%);
-  padding: 7px;
-  padding-left: 15px;
-  margin-top: 10px;
-}
-
-</style>

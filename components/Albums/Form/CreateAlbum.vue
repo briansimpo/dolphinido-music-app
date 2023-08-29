@@ -89,7 +89,7 @@ function submitForm () {
         :options="albumReleases"
         option-value="id"
         option-label="name"
-        placeholder="Select Album Release"
+        placeholder="Select Release"
         class="w-full flex"
         required
       />

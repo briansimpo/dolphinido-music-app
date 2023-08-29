@@ -2,7 +2,8 @@
 import { useDropzone } from 'vue3-dropzone'
 
 const props = defineProps({
-  file: { type: Object, required: true }
+  file: { type: Object, required: true },
+  album: { type: Object, required: true }
 })
 
 const { errorMessage } = useToastMessage()
@@ -12,10 +13,10 @@ const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({
   title: removeExtension(props.file.name),
-  track: null,
   genre: null,
   release_date: null,
   cover_image: null,
+  album: props.album.id,
   song_file: props.file
 })
 
@@ -33,6 +34,7 @@ function submitForm () {
   const formData = new FormData()
   formData.append('title', form.value.title)
   formData.append('genre', form.value.genre)
+  formData.append('album', form.value.album)
   formData.append('release_date', formatDate(form.value.release_date, 'yyyy-MM-dd'))
   formData.append('cover_image', form.value.cover_image)
   formData.append('song_file', form.value.song_file)

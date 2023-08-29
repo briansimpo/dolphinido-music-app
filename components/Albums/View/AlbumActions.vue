@@ -46,12 +46,6 @@ const handlePublish = () => {
       </li>
 
       <li>
-        <NuxtLink :to=" '/controlroom/albums/'+ props.album.id +'/tracks' " class="btn btn-sm btn-primary">
-          Add Tracks
-        </NuxtLink>
-      </li>
-
-      <li>
         <button class="btn btn-sm btn-success" @click="handlePublish">
           Publish
         </button>

@@ -1,6 +1,6 @@
 <template>
-  <div class="section__head align-items-center">
-    <h1 class="display-6 d-block">
+  <div>
+    <h1 class="display-6 d-block mb-6">
       <slot />
     </h1>
   </div>

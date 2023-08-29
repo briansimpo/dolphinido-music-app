@@ -9,32 +9,6 @@
       </li>
 
       <li class="nav-item nav-item--head">
-        <span class="nav-item--head__text">Add Work</span>
-        <span class="nav-item--head__dots">...</span>
-      </li>
-
-      <li class="nav-item">
-        <NuxtLink to="/controlroom/songs/add" class="nav-link d-flex align-items-center">
-          <i class="ri-add-circle-line fs-5" />
-          <span class="ps-3">Add Song</span>
-        </NuxtLink>
-      </li>
-
-      <li class="nav-item">
-        <NuxtLink to="/controlroom/albums/add" class="nav-link d-flex align-items-center">
-          <i class="ri-add-box-line fs-5" />
-          <span class="ps-3">Add Album</span>
-        </NuxtLink>
-      </li>
-
-      <li class="nav-item">
-        <NuxtLink to="/controlroom/shows/add" class="nav-link d-flex align-items-center">
-          <i class="ri-add-circle-line fs-5" />
-          <span class="ps-3">Add Show</span>
-        </NuxtLink>
-      </li>
-
-      <li class="nav-item nav-item--head">
         <span class="nav-item--head__text">My Work</span>
         <span class="nav-item--head__dots">...</span>
       </li>

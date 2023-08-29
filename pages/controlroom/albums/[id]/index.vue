@@ -23,6 +23,7 @@ const { pending, album } = useUserAlbum(route.params.id)
         </div>
         <div v-else>
           <AlbumDetails :album="album" />
+          <TrackList :album="album" />
         </div>
       </SectionBody>
     </SectionPanel>

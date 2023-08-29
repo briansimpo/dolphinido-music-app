@@ -10,7 +10,6 @@ const { updateSong } = useUserSongService()
 
 const form = ref({
   title: props.song.title,
-  track: props.song.track,
   genre: props.song.genre_id,
   album: props.song.album_id,
   release_date: formatDate(props.song.release_date, 'yyyy-MM-dd')
@@ -30,16 +29,6 @@ function submitForm () {
         id="title"
         v-model="form.title"
         type="text"
-        class="w-full flex"
-        required
-      />
-    </div>
-
-    <div class="mb-3">
-      <label for="track" class="form-label fw-medium">Track Number *</label>
-      <InputNumber
-        v-model="form.track"
-        :use-grouping="false"
         class="w-full flex"
         required
       />

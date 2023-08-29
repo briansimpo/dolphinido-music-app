@@ -8,7 +8,7 @@ const props = defineProps({
 
 <template>
   <div class="list__item">
-    <TrackImage :song="props.song" />
-    <TrackInfo :song="props.song" />
+    <TrackItemImage :song="props.song" />
+    <TrackItemInfo :song="props.song" />
   </div>
 </template>

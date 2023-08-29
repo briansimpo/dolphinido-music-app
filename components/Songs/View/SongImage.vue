@@ -11,7 +11,7 @@ const showUpdateDialog = ref(false)
 
 <template>
   <div>
-    <div v-if="!showUpdateDialog" class="cover cover--round">
+    <div class="cover cover--round">
       <div class="cover__head">
         <ul class="cover__label d-flex">
           <li>

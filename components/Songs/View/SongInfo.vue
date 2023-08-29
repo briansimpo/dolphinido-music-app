@@ -31,12 +31,6 @@ const props = defineProps({
       </li>
 
       <li>
-        <a href="javascript:void(0);" role="button" class="text-dark d-flex align-items-center" aria-label="Download">
-          <i class="ri-play-list-line" />
-          <span class="ps-2 fw-medium">Track {{ props.song.track }}</span>
-        </a>
-      </li>
-      <li>
         <span class="text-dark d-flex align-items-center">
           <i class="ri-time-line" />
           <span class="ps-2 fw-medium">{{ formatDuration(props.song.duration) }}</span>

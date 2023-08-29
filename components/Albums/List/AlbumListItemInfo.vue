@@ -25,7 +25,7 @@ const props = defineProps({
     </li>
     <li>
       <a href="#" role="button" class="d-inline-flex">
-        <i class="ri-arrow-down-line fs-5" /> {{ formatCount(props.album.downloads) }}
+        <i class="ri-arrow-down-line" /> {{ formatCount(props.album.downloads) }}
       </a>
     </li>
   </ul>
