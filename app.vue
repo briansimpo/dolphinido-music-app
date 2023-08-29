@@ -10,8 +10,8 @@ useHead({
     <NuxtLayout>
       <NuxtLoadingIndicator />
       <NuxtPage />
-      <Toast />
       <ConfirmDialog />
+      <Toast position="bottom-right" />
     </NuxtLayout>
   </div>
 </template>
