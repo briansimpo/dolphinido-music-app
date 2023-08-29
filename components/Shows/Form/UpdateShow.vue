@@ -5,7 +5,7 @@ const props = defineProps({
 })
 
 const { countries } = useCountries()
-const { updateShow } = useShowService()
+const { updateShow } = useUserShowService()
 
 const form = ref({
   title: props.show.title,

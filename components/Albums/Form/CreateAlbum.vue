@@ -5,7 +5,7 @@ import { useDropzone } from 'vue3-dropzone'
 const { errorMessage } = useToastMessage()
 const { genres } = useGenres()
 const { albumReleases } = useAlbumReleases()
-const { createAlbum } = useAlbumService()
+const { createAlbum } = useUserAlbumService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({

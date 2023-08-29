@@ -1,6 +1,6 @@
 export function useGenres () {
   const config = useRuntimeConfig()
-  const { token } = useAuthUser()
+  const { token } = useAuthService()
 
   const { data } = useFetch(
     config.public.apiBase + '/genres',

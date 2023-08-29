@@ -1,6 +1,7 @@
-export function useBecomeArtist () {
+export function useRegisterService () {
   const config = useRuntimeConfig()
-  const { user, token } = useAuthUser()
+  const { user, token } = useAuthService()
+  const { successMessage, errorMessage } = useToastMessage()
 
   /** @param {FormData} formData */
   const register = async (formData) => {
@@ -11,10 +12,10 @@ export function useBecomeArtist () {
       headers: { Authorization: `Bearer ${token.value}` },
       body: formData
     })
-    if (data.value === undefined) {
-      alert('Ooops! An error occured')
+    if (data.value === null) {
+      errorMessage()
     } else {
-      alert('Your account has been created')
+      successMessage('Your account has been created')
       user.value.is_artist = true
       return navigateTo('/controlroom')
     }

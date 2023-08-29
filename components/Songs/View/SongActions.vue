@@ -8,7 +8,7 @@ const props = defineProps({
 
 const showUpdateDialog = ref(false)
 
-const { publishSong, deleteSong } = useSongService()
+const { publishSong, deleteSong } = useUserSongService()
 
 const confirm = useConfirm()
 

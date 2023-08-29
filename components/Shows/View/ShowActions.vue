@@ -8,7 +8,7 @@ const props = defineProps({
 
 const showUpdateDialog = ref(false)
 
-const { publishShow, deleteShow } = useShowService()
+const { publishShow, deleteShow } = useUserShowService()
 
 const confirm = useConfirm()
 

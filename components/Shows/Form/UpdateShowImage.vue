@@ -6,7 +6,7 @@ const props = defineProps({
 })
 
 const { errorMessage } = useToastMessage()
-const { updateShowImage } = useShowService()
+const { updateShowImage } = useUserShowService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({

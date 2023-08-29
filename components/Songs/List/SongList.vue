@@ -32,7 +32,7 @@ const { pending, songs } = useUserSongs()
         <div v-if="pending">
           <StateLoader />
         </div>
-        <div v-else>
+        <div>
           <div v-for="song in songs" :key="song.id" class="col-xl-12 mb-2">
             <SongListItem :song="song" class="mb-2" />
           </div>

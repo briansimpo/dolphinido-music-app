@@ -6,7 +6,7 @@ const props = defineProps({
 
 const { genres } = useGenres()
 const { albumReleases } = useAlbumReleases()
-const { updateAlbum } = useAlbumService()
+const { updateAlbum } = useUserAlbumService()
 
 const form = ref({
   title: props.album.title,
@@ -73,7 +73,7 @@ function submitForm () {
     </div>
 
     <div class="mt-3 col-lg-4 mx-auto">
-      <Button type="submit" class="btn btn-primary w-100">
+      <Button type="submit" class="btn btn-primary w-100 float-left">
         Save
       </Button>
     </div>

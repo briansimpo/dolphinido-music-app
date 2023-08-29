@@ -1,7 +1,34 @@
-export function useAlbumService () {
+export function useUserAlbumService () {
   const config = useRuntimeConfig()
-  const { token } = useAuthUser()
+  const { token } = useAuthService()
   const { successMessage, errorMessage } = useToastMessage()
+
+  const getAlbums = async () => {
+    const { data: albums } = await useFetch(
+      config.public.apiBase + '/portal/albums',
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+
+    return albums.value.data
+  }
+
+  const getAlbum = async (albumId) => {
+    const { data: album } = await useFetch(
+      config.public.apiBase + '/portal/albums/' + albumId,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+    return album.value
+  }
 
   const createAlbum = async (formData) => {
     const { data } = await useFetch(config.public.apiBase + '/portal/albums', {
@@ -96,6 +123,8 @@ export function useAlbumService () {
   }
 
   return {
+    getAlbums,
+    getAlbum,
     createAlbum,
     updateAlbum,
     updateAlbumImage,

@@ -8,7 +8,7 @@ const props = defineProps({
 
 const showUpdateDialog = ref(false)
 
-const { publishAlbum, deleteAlbum } = useAlbumService()
+const { publishAlbum, deleteAlbum } = useUserAlbumService()
 
 const confirm = useConfirm()
 

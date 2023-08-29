@@ -1,6 +1,6 @@
 export function useUserSong (songId) {
   const config = useRuntimeConfig()
-  const { token } = useAuthUser()
+  const { token } = useAuthService()
 
   const { pending, data } = useFetch(config.public.apiBase + '/portal/songs/' + songId, {
     method: 'GET',

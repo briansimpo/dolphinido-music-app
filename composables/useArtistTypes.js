@@ -1,6 +1,6 @@
 export function useArtistTypes () {
   const config = useRuntimeConfig()
-  const { token } = useAuthUser()
+  const { token } = useAuthService()
 
   const { data } = useFetch(
     config.public.apiBase + '/artist_types',

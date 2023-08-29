@@ -6,7 +6,7 @@ const props = defineProps({
 
 const { genres } = useGenres()
 const { albums } = useUserAlbums()
-const { updateSong } = useSongService()
+const { updateSong } = useUserSongService()
 
 const form = ref({
   title: props.song.title,

@@ -1,6 +1,6 @@
 export function useUserAlbum (albumId) {
   const config = useRuntimeConfig()
-  const { token } = useAuthUser()
+  const { token } = useAuthService()
 
   const { pending, data } = useFetch(config.public.apiBase + '/portal/albums/' + albumId, {
     method: 'GET',

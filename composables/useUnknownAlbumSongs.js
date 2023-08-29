@@ -1,8 +1,8 @@
-export function useUserSongs () {
+export function useUnknownAlbumSongs () {
   const config = useRuntimeConfig()
   const { token } = useAuthService()
 
-  const { pending, data } = useFetch(config.public.apiBase + '/portal/songs', {
+  const { pending, data } = useFetch(config.public.apiBase + '/portal/unknown_album_songs', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token.value}`

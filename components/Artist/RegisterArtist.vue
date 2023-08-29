@@ -1,6 +1,6 @@
 <script setup>
 const { artistTypes } = useArtistTypes()
-const { register } = useBecomeArtist()
+const { register } = useRegisterService()
 
 /** @param {Event} event */
 function submitForm (event) {

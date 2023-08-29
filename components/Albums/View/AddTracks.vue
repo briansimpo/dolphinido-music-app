@@ -3,7 +3,7 @@ const props = defineProps({
   album: { type: Object, required: true }
 })
 
-const { songs } = useUserSongs()
+const { songs } = useUnknownAlbumSongs()
 
 const selectedTrack = ref()
 const albumTracks = ref([])

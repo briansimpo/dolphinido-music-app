@@ -1,7 +1,34 @@
-export function useShowService () {
+export function useUserShowService () {
   const config = useRuntimeConfig()
-  const { token } = useAuthUser()
+  const { token } = useAuthService()
   const { successMessage, errorMessage } = useToastMessage()
+
+  const getShows = async () => {
+    const { data: shows } = await useFetch(
+      config.public.apiBase + '/portal/shows',
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+    return shows.value.data
+  }
+
+  const getShow = async (showId) => {
+    const { show } = await useFetch(
+      config.public.apiBase + '/portal/shows/' + showId,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        }
+      }
+    )
+
+    return show.value
+  }
 
   const createShow = async (formData) => {
     const { data } = await useFetch(config.public.apiBase + '/portal/shows', {
@@ -96,6 +123,8 @@ export function useShowService () {
   }
 
   return {
+    getShows,
+    getShow,
     createShow,
     updateShow,
     updateShowImage,

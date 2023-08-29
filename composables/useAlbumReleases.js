@@ -1,6 +1,6 @@
 export function useAlbumReleases () {
   const config = useRuntimeConfig()
-  const { token } = useAuthUser()
+  const { token } = useAuthService()
 
   const { data } = useFetch(
     config.public.apiBase + '/album_releases',

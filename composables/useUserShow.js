@@ -1,6 +1,6 @@
 export function useUserShow (showId) {
   const config = useRuntimeConfig()
-  const { token } = useAuthUser()
+  const { token } = useAuthService()
 
   const { pending, data } = useFetch(config.public.apiBase + '/portal/shows/' + showId, {
     method: 'GET',

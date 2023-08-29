@@ -1,6 +1,6 @@
 <script setup>
 
-const { signin } = useSignIn()
+const { signin } = useAuthService()
 
 const form = ref({
   username: null,

@@ -1,6 +1,6 @@
 <script setup>
 
-const { user, role } = useAuthUser()
+const { user, role } = useAuthService()
 
 </script>
 <template>

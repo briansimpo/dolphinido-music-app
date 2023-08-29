@@ -8,7 +8,7 @@ const props = defineProps({
 const { errorMessage } = useToastMessage()
 const { genres } = useGenres()
 const { albums } = useUserAlbums()
-const { createSong } = useSongService()
+const { createSong } = useUserSongService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({

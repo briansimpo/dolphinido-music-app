@@ -6,7 +6,7 @@ const props = defineProps({
 })
 
 const { errorMessage } = useToastMessage()
-const { updateAlbumImage } = useAlbumService()
+const { updateAlbumImage } = useUserAlbumService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({
