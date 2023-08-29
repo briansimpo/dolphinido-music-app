@@ -28,7 +28,7 @@ const props = defineProps({
     </li>
     <li>{{ formatDuration(props.song.duration) }}</li>
     <li>
-      <a href="javascript:void(0);" role="button" class="d-inline-flex">
+      <a href="javascript:void(0);" role="button" class="d-inline-flex ">
         <i class="ri-delete-bin-line" />
       </a>
     </li>
