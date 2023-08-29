@@ -3,7 +3,7 @@ const props = defineProps({
   album: { type: Object, required: true }
 })
 
-const { songs } = useUnknownAlbumSongs()
+const { songs } = useUserSongs()
 
 const selectedTrack = ref()
 const albumTracks = ref([])
@@ -14,43 +14,43 @@ const addTrack = () => {
   }
 }
 
-const deleteTrack = (id) => {
-  albumTracks.value = albumTracks.value.filter(function (track) {
-    return track.id !== id
-  })
-}
 </script>
 
 <template>
   <div class="row align-items-center">
-    <div class="col-xl-3 col-md-4">
-      <div class="cover cover--round">
-        <div class="cover__image">
-          <Image
-            :src="fileUrl(props.album.cover_image)"
-            alt="cover image"
-          />
+    <div class="col-lg-12">
+      <div class="list">
+        <div class="card">
+          <div class="card-header">
+            <span class="text-dark fs-3">
+              {{ props.album.title }}
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="position-reletive">
+                <Dropdown
+                  v-model="selectedTrack"
+                  filter
+                  :options="songs"
+                  option-label="title"
+                  placeholder="Add Existing Track"
+                  class="w-full md:w-20rem mb-5 float-start"
+                  @change="addTrack"
+                />
+
+                <Button class="float-end" size="small">
+                  New Track
+                </Button>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div v-for="song in albumTracks" :key="song.id" class="col-xl-12 mb-2">
+                <AlbumTrack :song="song" />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-1 d-none d-xl-block" />
-    <div class="col-md-8 mt-2 mt-md-0">
-      <AlbumInfo :album="props.album" />
-      <Dropdown
-        v-model="selectedTrack"
-        filter
-        :options="songs"
-        option-label="title"
-        placeholder="Add Album Tracks"
-        class="w-full md:w-24rem mb-5"
-        @change="addTrack"
-      />
-    </div>
-  </div>
-  <div class="list mt-8">
-    <div class="row">
-      <div v-for="song in albumTracks" :key="song.id" class="col-xl-12 mb-2">
-        <AlbumTrack :song="song" @click="deleteTrack(song.id) " />
       </div>
     </div>
   </div>
