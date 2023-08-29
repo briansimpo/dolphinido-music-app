@@ -4,7 +4,7 @@ const { pending, songs } = useUserSongs()
 
 </script>
 <template>
-  <div class="list list--lg mt-6">
+  <div class="list list--lg mt-5">
     <div class="row">
       <div v-if="pending">
         <StateLoader />
