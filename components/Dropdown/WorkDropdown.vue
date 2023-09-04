@@ -10,7 +10,7 @@
       aria-expanded="false"
     >
       <i class="ri-add-box-fill fs-5" />
-      <span class="d-none d-md-block ms-1">Add Work</span>
+      <span>Add Work</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="work_menu">
       <li>
