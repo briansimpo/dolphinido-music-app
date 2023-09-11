@@ -1,6 +1,6 @@
 export function useAuthService () {
   const config = useRuntimeConfig()
-  const { data, status } = useAuth()
+  const { data, status, signIn } = useAuth()
   const { errorMessage } = useToastMessage()
 
   const signup = async (formData) => {
