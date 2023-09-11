@@ -1,11 +1,23 @@
 <script setup>
 const { artistTypes } = useArtistTypes()
 const { register } = useRegisterService()
+const { user } = useAuthService()
 
-/** @param {Event} event */
-function submitForm (event) {
-  const form = event.currentTarget
-  const formData = new FormData(form)
+const form = ref({
+  name: user.name,
+  birthday: null,
+  artist_type: null,
+  country: null,
+  city: null
+})
+
+function submitForm () {
+  const formData = new FormData()
+  formData.append('name', form.value.name)
+  formData.append('birthday', formatDate(form.value.birthday, 'yyyy-MM-dd'))
+  formData.append('artist_type', form.value.artist_type)
+  formData.append('country', form.value.country)
+  formData.append('city', form.value.city)
   register(formData)
 }
 
@@ -25,7 +37,13 @@ function submitForm (event) {
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="name" class="form-label fw-medium">Name *</label>
-                <input id="name" name="name" type="text" class="form-control" required>
+                <InputText
+                  id="name"
+                  v-model="form.name"
+                  type="text"
+                  class="w-full flex"
+                  required
+                />
               </div>
             </div>
           </div>
@@ -34,17 +52,28 @@ function submitForm (event) {
             <div class="col-lg-6">
               <div class="mb-3">
                 <label for="birthday" class="form-label fw-medium">Date of Birth *</label>
-                <input id="birthday" name="birthday" type="date" class="form-control" required>
+                <Calendar
+                  v-model="form.birthday"
+                  date-format="yy-mm-dd"
+                  show-icon
+                  class="w-full flex"
+                  required
+                />
               </div>
             </div>
             <div class="col-lg-6">
               <div class="mb-3">
                 <label for="artist_type" class="form-label fw-medium">Artist Type *</label>
-                <select id="artist_type" name="artist_type" class="form-control" required>
-                  <option v-for="type in artistTypes" :key="type.id" :value="type.id">
-                    {{ type.name }}
-                  </option>
-                </select>
+
+                <Dropdown
+                  v-model="form.artist_type"
+                  :options="artistTypes"
+                  option-value="id"
+                  option-label="name"
+                  placeholder="Select Artist Type"
+                  class="w-full flex"
+                  required
+                />
               </div>
             </div>
           </div>
@@ -53,22 +82,34 @@ function submitForm (event) {
             <div class="col-lg-6">
               <div class="mb-3">
                 <label for="country" class="form-label fw-medium">Country *</label>
-                <input id="country" name="country" type="text" class="form-control" required>
+                <InputText
+                  id="country"
+                  v-model="form.country"
+                  type="text"
+                  class="w-full flex"
+                  required
+                />
               </div>
             </div>
             <div class="col-lg-6">
               <div class="mb-3">
                 <label for="city" class="form-label fw-medium">City *</label>
-                <input id="city" name="city" type="text" class="form-control" required>
+                <InputText
+                  id="city"
+                  v-model="form.city"
+                  type="text"
+                  class="w-full flex"
+                  required
+                />
               </div>
             </div>
           </div>
 
           <div class="row">
             <div class="mt-3 col-lg-4 mx-auto">
-              <button type="submit" class="btn btn-primary w-100">
+              <Button type="submit" class="btn btn-primary w-100">
                 Register
-              </button>
+              </Button>
             </div>
           </div>
         </form>
