@@ -7,6 +7,7 @@ const song = dialogRef.value.data.song
 const { genres } = useGenres()
 const { albums } = useUserAlbums()
 const { updateSong } = useUserSongService()
+const { refreshData } = useRefresh()
 
 const form = ref({
   title: song.title,
@@ -18,6 +19,7 @@ const form = ref({
 function submitForm () {
   updateSong(song.id, form.value)
   dialogRef.value.close()
+  refreshData()
 }
 
 </script>
