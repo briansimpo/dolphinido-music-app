@@ -62,9 +62,10 @@ export function useUserSongService () {
 
     if (data.value === null) {
       errorMessage()
+      return false
     } else {
       successMessage()
-      return navigateTo('/controlroom/songs')
+      return true
     }
   }
 
@@ -82,8 +83,10 @@ export function useUserSongService () {
 
     if (data.value === null) {
       errorMessage()
+      return false
     } else {
       successMessage()
+      return true
     }
   }
 
@@ -101,8 +104,10 @@ export function useUserSongService () {
 
     if (data.value === null) {
       errorMessage()
+      return false
     } else {
       successMessage()
+      return true
     }
   }
 
@@ -119,8 +124,10 @@ export function useUserSongService () {
 
     if (data.value === null) {
       errorMessage()
+      return false
     } else {
       successMessage()
+      return true
     }
   }
 
@@ -137,9 +144,10 @@ export function useUserSongService () {
 
     if (data.value === null) {
       errorMessage()
+      return false
     } else {
       successMessage()
-      return navigateTo('/controlroom/songs')
+      return true
     }
   }
 

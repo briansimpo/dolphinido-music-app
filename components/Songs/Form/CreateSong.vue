@@ -1,9 +1,12 @@
 <script setup>
 import { useDropzone } from 'vue3-dropzone'
+import { inject } from 'vue'
 
 const props = defineProps({
   file: { type: Object, required: true }
 })
+
+const dialogRef = inject('dialogRef')
 
 const { errorMessage } = useToastMessage()
 const { genres } = useGenres()
@@ -37,6 +40,7 @@ function submitForm () {
   formData.append('cover_image', form.value.cover_image)
   formData.append('song_file', form.value.song_file)
   createSong(formData)
+  dialogRef.value.close()
 }
 
 </script>

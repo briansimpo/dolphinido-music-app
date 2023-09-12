@@ -1,10 +1,8 @@
 <script setup>
 const { uploadSongDialog } = useSongFormDialog()
-const dialogRef = inject('dialogRef')
 
 const openUploadDialog = () => {
   uploadSongDialog()
-  dialogRef.value.close()
 }
 </script>
 
