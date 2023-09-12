@@ -12,9 +12,11 @@ export function useAuthService () {
     if (data.value.data == null) {
       errorMessage(data.value.message)
     } else {
-      const email = formData.email
-      const password = formData.password
-      signin(email, password)
+      const form = ref({
+        username: formData.email,
+        password: formData.password
+      })
+      signin(form.value)
     }
   }
 
