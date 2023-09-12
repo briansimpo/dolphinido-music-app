@@ -4,7 +4,7 @@ const { register } = useRegisterService()
 const { user } = useAuthService()
 
 const form = ref({
-  name: user.name,
+  name: user.value.name,
   birthday: null,
   artist_type: null,
   country: null,
@@ -24,7 +24,7 @@ function submitForm () {
 </script>
 
 <template>
-  <div class="col-lg-8 col-md-6 col-sm-12 mx-auto">
+  <div class="col-lg-6 col-md-6 col-sm-12 mx-auto">
     <div class="mx-auto text-center">
       <h1 class="display-6">
         Artist Account

@@ -11,7 +11,9 @@ export function useCountries () {
   )
 
   const countries = computed(() => {
-    return data.value
+    if (data.value) {
+      return data.value
+    }
   })
 
   return {

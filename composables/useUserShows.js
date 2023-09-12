@@ -10,7 +10,9 @@ export function useUserShows () {
   })
 
   const shows = computed(() => {
-    return data.value.data
+    if (data.value) {
+      return data.value.data
+    }
   })
 
   return {
