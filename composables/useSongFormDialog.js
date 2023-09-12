@@ -18,7 +18,7 @@ export function useSongFormDialog () {
   const uploadSongDialog = () => {
     dialog.open(uploadSongComponent, {
       props: {
-        header: 'Update Song',
+        header: 'Upload Song',
         style: { width: '40vw' },
         breakpoints: { '960px': '75vw', '640px': '90vw' },
         modal: true
