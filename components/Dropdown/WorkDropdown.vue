@@ -1,3 +1,13 @@
+<script setup>
+const { uploadSongDialog } = useSongFormDialog()
+const dialogRef = inject('dialogRef')
+
+const openUploadDialog = () => {
+  uploadSongDialog()
+  dialogRef.value.close()
+}
+</script>
+
 <template>
   <div class="dropdown">
     <a
@@ -14,10 +24,10 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="work_menu">
       <li>
-        <NuxtLink to="/controlroom/songs/add" class="dropdown-item d-flex align-items-center">
+        <button class="dropdown-item d-flex align-items-center" @click="openUploadDialog">
           <i class="ri-music-2-line fs-5" />
           <span class="ps-2">Add Song</span>
-        </NuxtLink>
+        </button>
       </li>
       <li>
         <NuxtLink to="/controlroom/albums/add" class="dropdown-item d-flex align-items-center">
