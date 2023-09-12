@@ -8,6 +8,7 @@ const song = dialogRef.value.data.song
 const { errorMessage } = useToastMessage()
 const { updateSongImage } = useUserSongService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
+const { refreshData } = useRefresh()
 
 const form = ref({
   cover_image: null
@@ -28,6 +29,7 @@ function submitForm () {
   formData.append('cover_image', form.value.cover_image)
   updateSongImage(song.id, formData)
   dialogRef.value.close()
+  refreshData()
 }
 
 </script>
