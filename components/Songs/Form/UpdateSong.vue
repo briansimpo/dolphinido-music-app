@@ -1,22 +1,23 @@
 <script setup>
+import { inject } from 'vue'
 
-const props = defineProps({
-  song: { type: Object, required: true }
-})
+const dialogRef = inject('dialogRef')
+const song = dialogRef.value.data.song
 
 const { genres } = useGenres()
 const { albums } = useUserAlbums()
 const { updateSong } = useUserSongService()
 
 const form = ref({
-  title: props.song.title,
-  genre: props.song.genre_id,
-  album: props.song.album_id,
-  release_date: formatDate(props.song.release_date, 'yyyy-MM-dd')
+  title: song.title,
+  genre: song.genre_id,
+  album: song.album_id,
+  release_date: formatDate(song.release_date, 'yyyy-MM-dd')
 })
 
 function submitForm () {
-  updateSong(props.song.id, form.value)
+  updateSong(song.id, form.value)
+  dialogRef.value.close()
 }
 
 </script>

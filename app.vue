@@ -11,6 +11,7 @@ useHead({
       <NuxtLoadingIndicator />
       <NuxtPage />
       <ConfirmDialog />
+      <DynamicDialog />
       <Toast position="bottom-right" />
     </NuxtLayout>
   </div>

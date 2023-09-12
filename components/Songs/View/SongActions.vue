@@ -1,14 +1,12 @@
 <script setup>
-import Dialog from 'primevue/dialog'
 import { useConfirm } from 'primevue/useconfirm'
 
 const props = defineProps({
   song: { type: Object, required: true }
 })
 
-const showUpdateDialog = ref(false)
-
 const { publishSong, deleteSong } = useUserSongService()
+const { updateSongDialog } = useSongFormDialog()
 
 const confirm = useConfirm()
 
@@ -35,13 +33,17 @@ const handlePublish = () => {
   })
 }
 
+const openUpdateDialog = () => {
+  updateSongDialog(props.song)
+}
+
 </script>
 
 <template>
   <div>
     <ul v-if="!props.song.is_published" class="info-list">
       <li>
-        <button class="btn btn-sm btn-primary" @click="showUpdateDialog = true">
+        <button class="btn btn-sm btn-primary" @click="openUpdateDialog">
           Update
         </button>
       </li>
@@ -58,14 +60,5 @@ const handlePublish = () => {
         </button>
       </li>
     </ul>
-    <Dialog
-      v-model:visible="showUpdateDialog"
-      modal
-      header="Update Song"
-      :style="{ width: '40vw' }"
-      :breakpoints="{ '960px': '75vw', '641px': '100vw' }"
-    >
-      <UpdateSong :song="props.song" />
-    </Dialog>
   </div>
 </template>

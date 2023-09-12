@@ -1,11 +1,13 @@
 <script setup>
-import Dialog from 'primevue/dialog'
-
 const props = defineProps({
   song: { type: Object, required: true }
 })
 
-const showUpdateDialog = ref(false)
+const { updateSongImageDialog } = useSongFormDialog()
+
+const openUpdateDialog = () => {
+  updateSongImageDialog(props.song)
+}
 
 </script>
 
@@ -33,21 +35,11 @@ const showUpdateDialog = ref(false)
         <button
           v-if="!props.song.is_published"
           class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
-          @click="showUpdateDialog = true"
+          @click="openUpdateDialog"
         >
           <i class="ri-pencil-fill" />
         </button>
       </div>
     </div>
-
-    <Dialog
-      v-model:visible="showUpdateDialog"
-      modal
-      header="Update Artwork"
-      :style="{ width: '30vw' }"
-      :breakpoints="{ '960px': '75vw', '641px': '100vw' }"
-    >
-      <UpdateSongImage :song="props.song" />
-    </Dialog>
   </div>
 </template>

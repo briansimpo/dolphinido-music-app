@@ -1,9 +1,9 @@
 <script setup>
 import { useDropzone } from 'vue3-dropzone'
+import { inject } from 'vue'
 
-const props = defineProps({
-  song: { type: Object, required: true }
-})
+const dialogRef = inject('dialogRef')
+const song = dialogRef.value.data.song
 
 const { errorMessage } = useToastMessage()
 const { updateSongImage } = useUserSongService()
@@ -26,7 +26,8 @@ function onDrop (acceptFiles) {
 function submitForm () {
   const formData = new FormData()
   formData.append('cover_image', form.value.cover_image)
-  updateSongImage(props.song.id, formData)
+  updateSongImage(song.id, formData)
+  dialogRef.value.close()
 }
 
 </script>
