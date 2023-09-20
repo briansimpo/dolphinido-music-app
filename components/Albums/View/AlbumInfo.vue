@@ -38,13 +38,6 @@ const props = defineProps({
       </li>
       <li>
         <span class="text-dark d-flex align-items-center">
-          <i class="ri-time-line" />
-          <span class="ps-2 fw-medium">{{ formatDuration(props.album.duration) }}</span>
-        </span>
-      </li>
-
-      <li>
-        <span class="text-dark d-flex align-items-center">
           <i class="ri-calendar-line" />
           <span class="ps-2 fw-medium">{{ formatDate(props.album.release_date, 'yyyy') }}</span>
         </span>
