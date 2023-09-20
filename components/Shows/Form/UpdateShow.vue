@@ -10,6 +10,7 @@ const { updateShow } = useUserShowService()
 const form = ref({
   title: show.title,
   venue: show.venue,
+  seats: show.seats,
   event_date: formatDate(show.event_date, 'yyyy-MM-dd'),
   event_time: show.event_time,
   country: show.country,
@@ -44,12 +45,22 @@ function submitForm () {
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12 mb-4">
+      <div class="col-sm-6 mb-4">
         <label for="venue" class="form-label fw-medium">Venue *</label>
         <InputText
           v-model="form.venue"
           input-id="venue"
           type="text"
+          class="w-full flex"
+          required
+        />
+      </div>
+      <div class="col-sm-6 mb-4">
+        <label for="seats" class="form-label fw-medium">Seats (Optional)</label>
+        <InputText
+          id="seats"
+          v-model="form.seats"
+          type="number"
           class="w-full flex"
           required
         />
