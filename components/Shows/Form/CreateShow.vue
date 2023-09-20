@@ -9,6 +9,7 @@ const { getRootProps, getInputProps } = useDropzone({ onDrop })
 const form = ref({
   title: null,
   venue: null,
+  seats: null,
   event_date: null,
   event_time: null,
   country: null,
@@ -35,6 +36,7 @@ function submitForm () {
   const formData = new FormData()
   formData.append('title', form.value.title)
   formData.append('venue', form.value.venue)
+  formData.append('seats', form.value.seats)
   formData.append('event_date', formatDate(form.value.event_date, 'yyyy-MM-dd'))
   formData.append('event_time', formatTime(form.value.event_time))
   formData.append('country', form.value.country)
@@ -83,12 +85,22 @@ function submitForm () {
     </div>
 
     <div class="row">
-      <div class="col-sm-12 mb-4">
+      <div class="col-sm-6 mb-4">
         <label for="venue" class="form-label fw-medium">Venue *</label>
         <InputText
           v-model="form.venue"
           input-id="venue"
           type="text"
+          class="w-full flex"
+          required
+        />
+      </div>
+      <div class="col-sm-6 mb-4">
+        <label for="seats" class="form-label fw-medium">Seats (Optional)</label>
+        <InputText
+          id="seats"
+          v-model="form.seats"
+          type="number"
           class="w-full flex"
           required
         />
