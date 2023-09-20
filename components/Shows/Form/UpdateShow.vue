@@ -81,11 +81,10 @@ function submitForm () {
       </div>
       <div class="col-sm-6 mb-4">
         <label for="time" class="form-label fw-medium">Time *</label>
-        <Calendar
+        <InputText
           v-model="form.event_time"
           input-id="time"
-          show-icon
-          time-only
+          type="time"
           class="w-full flex"
           required
         />

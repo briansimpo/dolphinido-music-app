@@ -24,7 +24,7 @@ const openUploadDialog = () => {
       <li>
         <button class="dropdown-item d-flex align-items-center" @click="openUploadDialog">
           <i class="ri-music-2-line fs-5" />
-          <span class="ps-2">Add Song</span>
+          <span class="ps-2">Upload Song</span>
         </button>
       </li>
       <li>
