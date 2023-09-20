@@ -5,7 +5,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <NuxtLink :to="'/controlroom/albums/' + props.album.id" class="list__cover">
-    <img :src="props.album.cover_image" alt="cover image">
+  <NuxtLink :to="`/controlroom/albums/${props.album.id}`" class="list__cover">
+    <img :src="fileUrl(props.album.cover_image)" alt="cover image">
   </NuxtLink>
 </template>

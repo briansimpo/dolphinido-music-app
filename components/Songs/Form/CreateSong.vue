@@ -11,6 +11,7 @@ const dialogRef = inject('dialogRef')
 const { errorMessage } = useToastMessage()
 const { genres } = useGenres()
 const { createSong } = useUserSongService()
+const { refreshData } = useRefresh()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({
@@ -41,6 +42,7 @@ function submitForm () {
   formData.append('song_file', form.value.song_file)
   createSong(formData)
   dialogRef.value.close()
+  refreshData()
 }
 
 </script>

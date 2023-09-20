@@ -1,14 +1,13 @@
 <script setup>
-import Dialog from 'primevue/dialog'
 import { useConfirm } from 'primevue/useconfirm'
 
 const props = defineProps({
   album: { type: Object, required: true }
 })
 
-const showUpdateDialog = ref(false)
-
 const { publishAlbum, deleteAlbum } = useUserAlbumService()
+const { updateAlbumDialog } = useAlbumFormDialog()
+const { refreshData } = useRefresh()
 
 const confirm = useConfirm()
 
@@ -19,6 +18,7 @@ const handleDelete = () => {
     acceptClass: 'p-button-danger',
     accept: () => {
       deleteAlbum(props.album.id)
+      navigateTo('/controlroom/albums', { external: true })
     },
     reject: () => {}
   })
@@ -30,9 +30,14 @@ const handlePublish = () => {
     header: 'Confirmation',
     accept: () => {
       publishAlbum(props.album.id)
+      refreshData()
     },
     reject: () => {}
   })
+}
+
+const openUpdateDialog = () => {
+  updateAlbumDialog(props.album)
 }
 </script>
 
@@ -40,7 +45,7 @@ const handlePublish = () => {
   <div>
     <ul v-if="!props.album.is_published" class="info-list">
       <li>
-        <button class="btn btn-sm btn-primary" @click="showUpdateDialog = true">
+        <button class="btn btn-sm btn-primary" @click="openUpdateDialog">
           Update
         </button>
       </li>
@@ -57,15 +62,5 @@ const handlePublish = () => {
         </button>
       </li>
     </ul>
-
-    <Dialog
-      v-model:visible="showUpdateDialog"
-      modal
-      header="Update Album"
-      :style="{ width: '40vw' }"
-      :breakpoints="{ '960px': '75vw', '641px': '100vw' }"
-    >
-      <UpdateAlbum :album="props.album" />
-    </Dialog>
   </div>
 </template>

@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
   <div class="list__content">
-    <NuxtLink :to="'/controlroom/albums/' + props.album.id" class="list__title text-truncate">
+    <NuxtLink :to="`/controlroom/albums/${props.album.id}`" class="list__title text-truncate">
       {{ props.album.title }}
     </NuxtLink>
     <p class="list__subtitle">

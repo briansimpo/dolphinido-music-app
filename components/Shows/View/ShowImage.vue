@@ -27,7 +27,7 @@ const showUpdateDialog = ref(false)
       </div>
       <div class="cover__image">
         <Image
-          :src="props.show.cover_image"
+          :src="fileUrl(props.show.cover_image)"
           alt="cover image"
         />
         <button

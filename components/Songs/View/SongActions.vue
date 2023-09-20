@@ -7,6 +7,7 @@ const props = defineProps({
 
 const { publishSong, deleteSong } = useUserSongService()
 const { updateSongDialog } = useSongFormDialog()
+const { refreshData } = useRefresh()
 
 const confirm = useConfirm()
 
@@ -17,6 +18,7 @@ const handleDelete = () => {
     acceptClass: 'p-button-danger',
     accept: () => {
       deleteSong(props.song.id)
+      navigateTo('/controlroom/songs', { external: true })
     },
     reject: () => {}
   })
@@ -28,6 +30,7 @@ const handlePublish = () => {
     header: 'Confirmation',
     accept: () => {
       publishSong(props.song.id)
+      refreshData()
     },
     reject: () => {}
   })

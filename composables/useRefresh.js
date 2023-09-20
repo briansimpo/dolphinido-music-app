@@ -1,3 +1,5 @@
+import { refreshNuxtData } from 'nuxt/app'
+
 export function useRefresh () {
   const refreshing = ref(false)
   const refreshData = async () => {

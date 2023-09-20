@@ -1,11 +1,13 @@
 <script setup>
-import Dialog from 'primevue/dialog'
-
 const props = defineProps({
   album: { type: Object, required: true }
 })
 
-const showUpdateDialog = ref(false)
+const { updateAlbumImageDialog } = useAlbumFormDialog()
+
+const openUpdateDialog = () => {
+  updateAlbumImageDialog(props.album)
+}
 
 </script>
 
@@ -27,27 +29,17 @@ const showUpdateDialog = ref(false)
       </div>
       <div class="cover__image">
         <Image
-          :src="props.album.cover_image"
+          :src="fileUrl(props.album.cover_image)"
           alt="cover image"
         />
         <button
           v-if="!props.album.is_published"
           class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
-          @click="showUpdateDialog = true"
+          @click="openUpdateDialog"
         >
           <i class="ri-pencil-fill" />
         </button>
       </div>
     </div>
-
-    <Dialog
-      v-model:visible="showUpdateDialog"
-      modal
-      header="Update Album Cover"
-      :style="{ width: '30vw' }"
-      :breakpoints="{ '960px': '75vw', '641px': '100vw' }"
-    >
-      <UpdateAlbumImage :album="props.album" />
-    </Dialog>
   </div>
 </template>

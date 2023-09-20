@@ -6,11 +6,11 @@ const props = defineProps({
 
 <template>
   <div class="cover cover--round">
-    <NuxtLink :to="'/controlroom/shows/' + props.show.id" class="cover__image">
-      <img :src="props.show.cover_image" alt="Event cover">
+    <NuxtLink :to="`/controlroom/shows/${props.show.id}`" class="cover__image">
+      <img :src="fileUrl(props.show.cover_image)" alt="Event cover">
     </NuxtLink>
     <div class="cover__foot mt-3 px-2">
-      <NuxtLink :to="'/controlroom/shows/' + props.show.id" class="cover__title fs-6 mb-3">
+      <NuxtLink :to="`/controlroom/shows/${props.show.id}`" class="cover__title fs-6 mb-3">
         {{ props.show.title }}
       </NuxtLink>
       <p class="cover__subtitle d-flex mb-2">

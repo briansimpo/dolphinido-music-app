@@ -1,22 +1,24 @@
 <script setup>
-
-const props = defineProps({
-  album: { type: Object, required: true }
-})
+import { inject } from 'vue'
+const dialogRef = inject('dialogRef')
+const album = dialogRef.value.data.album
 
 const { genres } = useGenres()
 const { albumReleases } = useAlbumReleases()
 const { updateAlbum } = useUserAlbumService()
+const { refreshData } = useRefresh()
 
 const form = ref({
-  title: props.album.title,
-  genre: props.album.genre_id,
-  album_release: props.album.album_release_id,
-  release_date: formatDate(props.album.release_date, 'yyyy-MM-dd')
+  title: album.title,
+  genre: album.genre_id,
+  album_release: album.album_release_id,
+  release_date: formatDate(album.release_date, 'yyyy-MM-dd')
 })
 
 function submitForm () {
-  updateAlbum(props.album.id, form.value)
+  updateAlbum(album.id, form.value)
+  dialogRef.value.close()
+  refreshData()
 }
 
 </script>
