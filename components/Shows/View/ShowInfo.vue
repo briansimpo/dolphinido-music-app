@@ -46,7 +46,7 @@ const props = defineProps({
           {{ formatCurrency(props.show.ticket_price) }}
         </a>
       </div>
-      <div class="d-flex align-items-center mb-3">
+      <div v-if="props.show.seats" class="d-flex align-items-center mb-3">
         <i class="ri-user-fill fs-5" />
         <a href="#" class="ms-3 text-dark">
           {{ props.show.seats }}
