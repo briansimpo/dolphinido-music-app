@@ -1,13 +1,14 @@
 <script setup>
 import { useDropzone } from 'vue3-dropzone'
+import { inject } from 'vue'
 
-const props = defineProps({
-  show: { type: Object, required: true }
-})
+const dialogRef = inject('dialogRef')
+const show = dialogRef.value.data.show
 
 const { errorMessage } = useToastMessage()
 const { updateShowImage } = useUserShowService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
+const { refreshData } = useRefresh()
 
 const form = ref({
   cover_image: null
@@ -26,7 +27,9 @@ function onDrop (acceptFiles) {
 function submitForm () {
   const formData = new FormData()
   formData.append('cover_image', form.value.cover_image)
-  updateShowImage(props.show.id, formData)
+  updateShowImage(show.id, formData)
+  dialogRef.value.close()
+  refreshData()
 }
 
 </script>

@@ -36,7 +36,7 @@ function submitForm () {
   formData.append('title', form.value.title)
   formData.append('venue', form.value.venue)
   formData.append('event_date', formatDate(form.value.event_date, 'yyyy-MM-dd'))
-  formData.append('event_time', form.value.event_time)
+  formData.append('event_time', formatTime(form.value.event_time))
   formData.append('country', form.value.country)
   formData.append('city', form.value.city)
   formData.append('contact_email', form.value.contact_email)

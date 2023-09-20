@@ -1,14 +1,13 @@
 <script setup>
-import Dialog from 'primevue/dialog'
 import { useConfirm } from 'primevue/useconfirm'
 
 const props = defineProps({
   show: { type: Object, required: true }
 })
 
-const showUpdateDialog = ref(false)
-
 const { publishShow, deleteShow } = useUserShowService()
+const { updateShowDialog } = useShowFormDialog()
+const { refreshData } = useRefresh()
 
 const confirm = useConfirm()
 
@@ -19,6 +18,7 @@ const handleDelete = () => {
     acceptClass: 'p-button-danger',
     accept: () => {
       deleteShow(props.show.id)
+      navigateTo('/controlroom/shows', { external: true })
     },
     reject: () => {}
   })
@@ -30,9 +30,14 @@ const handlePublish = () => {
     header: 'Confirmation',
     accept: () => {
       publishShow(props.show.id)
+      refreshData()
     },
     reject: () => {}
   })
+}
+
+const openUpdateDialog = () => {
+  updateShowDialog(props.show)
 }
 
 </script>
@@ -41,7 +46,7 @@ const handlePublish = () => {
   <div>
     <ul v-if="!props.show.is_published" class="info-list">
       <li>
-        <button class="btn btn-sm btn-primary" @click="showUpdateDialog = true">
+        <button class="btn btn-sm btn-primary" @click="openUpdateDialog">
           Update
         </button>
       </li>
@@ -58,14 +63,5 @@ const handlePublish = () => {
         </button>
       </li>
     </ul>
-    <Dialog
-      v-model:visible="showUpdateDialog"
-      modal
-      header="Update Show"
-      :style="{ width: '40vw' }"
-      :breakpoints="{ '960px': '75vw', '641px': '100vw' }"
-    >
-      <UpdateShow :show="props.show" />
-    </Dialog>
   </div>
 </template>

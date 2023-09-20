@@ -1,28 +1,30 @@
 <script setup>
+import { inject } from 'vue'
 
-const props = defineProps({
-  show: { type: Object, required: true }
-})
+const dialogRef = inject('dialogRef')
+const show = dialogRef.value.data.show
 
 const { countries } = useCountries()
 const { updateShow } = useUserShowService()
 
 const form = ref({
-  title: props.show.title,
-  venue: props.show.venue,
-  event_date: formatDate(props.show.event_date, 'yyyy-MM-dd'),
-  event_time: props.show.event_time,
-  country: props.show.country,
-  city: props.show.city,
-  contact_email: props.show.contact_email,
-  contact_number: props.show.contact_number,
-  description: props.show.description,
-  is_free: props.show.is_free,
-  ticket_price: props.show.ticket_price
+  title: show.title,
+  venue: show.venue,
+  event_date: formatDate(show.event_date, 'yyyy-MM-dd'),
+  event_time: show.event_time,
+  country: show.country,
+  city: show.city,
+  contact_email: show.contact_email,
+  contact_number: show.contact_number,
+  description: show.description,
+  is_free: show.is_free,
+  ticket_price: show.ticket_price
 })
 
 function submitForm () {
-  updateShow(props.show.id, form.value)
+  updateShow(show.id, form.value)
+  dialogRef.value.close()
+  refreshData()
 }
 
 </script>

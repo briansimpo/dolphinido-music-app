@@ -1,11 +1,13 @@
 <script setup>
-import Dialog from 'primevue/dialog'
-
 const props = defineProps({
   show: { type: Object, required: true }
 })
 
-const showUpdateDialog = ref(false)
+const { updateShowImageDialog } = useShowFormDialog()
+
+const openUpdateDialog = () => {
+  updateShowImageDialog(props.show)
+}
 
 </script>
 
@@ -33,21 +35,11 @@ const showUpdateDialog = ref(false)
         <button
           v-if="!props.show.is_published"
           class="btn btn-play btn-sm btn-default btn-icon rounded-pill"
-          @click="showUpdateDialog = true"
+          @click="openUpdateDialog"
         >
           <i class="ri-pencil-fill" />
         </button>
       </div>
     </div>
-
-    <Dialog
-      v-model:visible="showUpdateDialog"
-      modal
-      header="Update Cover Image"
-      :style="{ width: '30vw' }"
-      :breakpoints="{ '960px': '75vw', '641px': '100vw' }"
-    >
-      <UpdateShowImage :show="props.show" />
-    </Dialog>
   </div>
 </template>
