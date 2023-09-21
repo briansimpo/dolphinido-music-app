@@ -3,7 +3,7 @@ const props = defineProps({
   show: { type: Object, required: true }
 })
 
-const { updateShowImageDialog } = useShowFormDialog()
+const { updateShowImageDialog } = useShowDialog()
 
 const openUpdateDialog = () => {
   updateShowImageDialog(props.show)

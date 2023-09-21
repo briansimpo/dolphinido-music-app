@@ -1,14 +1,14 @@
 import { useDialog } from 'primevue/usedialog'
 
 const updateShowComponent = defineAsyncComponent(() =>
-  import('../components/Shows/Form/UpdateShow.vue')
+  import('../components/Shows/Dialog/UpdateShowDialog.vue')
 )
 
 const updateShowImageComponent = defineAsyncComponent(() =>
-  import('../components/Shows/Form/UpdateShowImage.vue')
+  import('../components/Shows/Dialog/UpdateShowImageDialog.vue')
 )
 
-export function useShowFormDialog () {
+export function useShowDialog () {
   const dialog = useDialog()
 
   const updateShowDialog = (show) => {

@@ -5,8 +5,8 @@ const props = defineProps({
   album: { type: Object, required: true }
 })
 
-const { publishAlbum, deleteAlbum } = useUserAlbumService()
-const { updateAlbumDialog } = useAlbumFormDialog()
+const { publishAlbum, deleteAlbum } = useAlbumService()
+const { updateAlbumDialog, addAlbumTrackDialog } = useAlbumDialog()
 const { refreshData } = useRefresh()
 
 const confirm = useConfirm()
@@ -39,6 +39,10 @@ const handlePublish = () => {
 const openUpdateDialog = () => {
   updateAlbumDialog(props.album)
 }
+
+const openTrackDialog = () => {
+  addAlbumTrackDialog(props.album)
+}
 </script>
 
 <template>
@@ -59,6 +63,12 @@ const openUpdateDialog = () => {
       <li>
         <button class="btn btn-sm btn-danger" @click="handleDelete">
           Delete
+        </button>
+      </li>
+
+      <li>
+        <button class="btn btn-sm btn-primary" @click="openTrackDialog">
+          Add Track
         </button>
       </li>
     </ul>

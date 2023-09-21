@@ -1,23 +1,22 @@
 <script setup>
 import { inject } from 'vue'
-
 const dialogRef = inject('dialogRef')
-const song = dialogRef.value.data.song
+const album = dialogRef.value.data.album
 
 const { genres } = useGenres()
-const { albums } = useUserAlbums()
-const { updateSong } = useUserSongService()
+const { albumReleases } = useAlbumReleases()
+const { updateAlbum } = useAlbumService()
 const { refreshData } = useRefresh()
 
 const form = ref({
-  title: song.title,
-  genre: song.genre_id,
-  album: song.album_id,
-  release_date: formatDate(song.release_date, 'yyyy-MM-dd')
+  title: album.title,
+  genre: album.genre_id,
+  album_release: album.album_release_id,
+  release_date: formatDate(album.release_date, 'yyyy-MM-dd')
 })
 
 function submitForm () {
-  updateSong(song.id, form.value)
+  updateAlbum(album.id, form.value)
   dialogRef.value.close()
   refreshData()
 }
@@ -52,6 +51,19 @@ function submitForm () {
     </div>
 
     <div class="mb-3">
+      <label for="genre" class="form-label fw-medium">Album Release *</label>
+      <Dropdown
+        v-model="form.album_release"
+        :options="albumReleases"
+        option-value="id"
+        option-label="name"
+        placeholder="Select Release"
+        class="w-full flex"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
       <label for="release_date" class="form-label fw-medium">Release Date *</label>
       <Calendar
         v-model="form.release_date"
@@ -62,21 +74,8 @@ function submitForm () {
       />
     </div>
 
-    <div class="mb-3">
-      <label for="album" class="form-label fw-medium">Album (Optional)</label>
-      <Dropdown
-        v-model="form.album"
-        filter
-        :options="albums"
-        option-value="id"
-        option-label="title"
-        placeholder="Select Album"
-        class="w-full flex"
-      />
-    </div>
-
     <div class="mt-3 col-lg-4 mx-auto">
-      <Button type="submit" class="btn btn-primary w-100">
+      <Button type="submit" class="btn btn-primary w-100 float-left">
         Save
       </Button>
     </div>

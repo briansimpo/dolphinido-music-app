@@ -1,14 +1,18 @@
 import { useDialog } from 'primevue/usedialog'
 
 const updateAlbumComponent = defineAsyncComponent(() =>
-  import('../components/Albums/Form/UpdateAlbum.vue')
+  import('../components/Albums/Dialog/UpdateAlbumDialog.vue')
 )
 
 const updateAlbumImageComponent = defineAsyncComponent(() =>
-  import('../components/Albums/Form/UpdateAlbumImage.vue')
+  import('../components/Albums/Dialog/UpdateAlbumImageDialog.vue')
 )
 
-export function useAlbumFormDialog () {
+const addAlbumTrackComponent = defineAsyncComponent(() =>
+  import('../components/Albums/Dialog/AddAlbumTrackDialog.vue')
+)
+
+export function useAlbumDialog () {
   const dialog = useDialog()
 
   const updateAlbumDialog = (album) => {
@@ -35,8 +39,21 @@ export function useAlbumFormDialog () {
     })
   }
 
+  const addAlbumTrackDialog = (album) => {
+    dialog.open(addAlbumTrackComponent, {
+      data: { album },
+      props: {
+        header: 'Add Album Track',
+        style: { width: '40vw' },
+        breakpoints: { '960px': '75vw', '640px': '90vw' },
+        modal: true
+      }
+    })
+  }
+
   return {
     updateAlbumDialog,
-    updateAlbumImageDialog
+    updateAlbumImageDialog,
+    addAlbumTrackDialog
   }
 }

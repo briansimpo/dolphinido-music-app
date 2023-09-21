@@ -15,7 +15,7 @@ definePageMeta({
         <div class="col-lg-6 mx-auto">
           <div class="card">
             <div class="card-body">
-              <CreateAlbum />
+              <CreateAlbumForm />
             </div>
           </div>
         </div>

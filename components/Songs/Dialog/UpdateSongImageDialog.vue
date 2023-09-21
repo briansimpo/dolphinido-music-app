@@ -2,25 +2,16 @@
 import { useDropzone } from 'vue3-dropzone'
 import { inject } from 'vue'
 
-const props = defineProps({
-  file: { type: Object, required: true }
-})
-
 const dialogRef = inject('dialogRef')
+const song = dialogRef.value.data.song
 
 const { errorMessage } = useToastMessage()
-const { genres } = useGenres()
-const { createSong } = useUserSongService()
-const { refreshData } = useRefresh()
+const { updateSongImage } = useSongService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
+const { refreshData } = useRefresh()
 
 const form = ref({
-  title: removeExtension(props.file.name),
-  track: null,
-  genre: null,
-  release_date: null,
-  cover_image: null,
-  song_file: props.file
+  cover_image: null
 })
 
 function onDrop (acceptFiles) {
@@ -35,12 +26,8 @@ function onDrop (acceptFiles) {
 
 function submitForm () {
   const formData = new FormData()
-  formData.append('title', form.value.title)
-  formData.append('genre', form.value.genre)
-  formData.append('release_date', formatDate(form.value.release_date, 'yyyy-MM-dd'))
   formData.append('cover_image', form.value.cover_image)
-  formData.append('song_file', form.value.song_file)
-  createSong(formData)
+  updateSongImage(song.id, formData)
   dialogRef.value.close()
   refreshData()
 }
@@ -64,42 +51,6 @@ function submitForm () {
       <div v-else>
         <ImagePreview :image="form.cover_image" />
       </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="title" class="form-label fw-medium">Title *</label>
-      <InputText
-        id="title"
-        v-model="form.title"
-        type="text"
-        class="w-full flex"
-        required
-      />
-    </div>
-
-    <div class="mb-3">
-      <label for="genre" class="form-label fw-medium">Genre *</label>
-      <Dropdown
-        v-model="form.genre"
-        filter
-        :options="genres"
-        option-value="id"
-        option-label="name"
-        placeholder="Select Genre"
-        class="w-full flex"
-        required
-      />
-    </div>
-
-    <div class="mb-3">
-      <label for="release_date" class="form-label fw-medium">Release Date *</label>
-      <Calendar
-        v-model="form.release_date"
-        date-format="yy-mm-dd"
-        show-icon
-        class="w-full flex"
-        required
-      />
     </div>
 
     <div class="mt-3 col-lg-4 mx-auto">

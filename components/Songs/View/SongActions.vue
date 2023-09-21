@@ -5,8 +5,8 @@ const props = defineProps({
   song: { type: Object, required: true }
 })
 
-const { publishSong, deleteSong } = useUserSongService()
-const { updateSongDialog } = useSongFormDialog()
+const { publishSong, deleteSong } = useSongService()
+const { updateSongDialog } = useSongDialog()
 const { refreshData } = useRefresh()
 
 const confirm = useConfirm()

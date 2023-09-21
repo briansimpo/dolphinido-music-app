@@ -15,5 +15,12 @@ const props = defineProps({
       <AlbumStats :album="props.album" />
       <AlbumActions :album="props.album" />
     </div>
+    <div class="list mt-6">
+      <div class="row">
+        <div v-for="song in props.album.tracks" :key="song.id" class="col-xl-12 mb-2">
+          <AlbumTrack :song="song" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>

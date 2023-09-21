@@ -1,4 +1,4 @@
-export function useUserShowService () {
+export function useShowService () {
   const config = useRuntimeConfig()
   const { token } = useAuthService()
   const { successMessage, errorMessage } = useToastMessage()

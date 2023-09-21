@@ -5,8 +5,8 @@ const props = defineProps({
   show: { type: Object, required: true }
 })
 
-const { publishShow, deleteShow } = useUserShowService()
-const { updateShowDialog } = useShowFormDialog()
+const { publishShow, deleteShow } = useShowService()
+const { updateShowDialog } = useShowDialog()
 const { refreshData } = useRefresh()
 
 const confirm = useConfirm()

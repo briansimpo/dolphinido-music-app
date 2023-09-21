@@ -5,7 +5,7 @@ const dialogRef = inject('dialogRef')
 const show = dialogRef.value.data.show
 
 const { countries } = useCountries()
-const { updateShow } = useUserShowService()
+const { updateShow } = useShowService()
 
 const form = ref({
   title: show.title,

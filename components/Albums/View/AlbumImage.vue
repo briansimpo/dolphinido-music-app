@@ -3,7 +3,7 @@ const props = defineProps({
   album: { type: Object, required: true }
 })
 
-const { updateAlbumImageDialog } = useAlbumFormDialog()
+const { updateAlbumImageDialog } = useAlbumDialog()
 
 const openUpdateDialog = () => {
   updateAlbumImageDialog(props.album)

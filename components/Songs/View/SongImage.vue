@@ -3,7 +3,7 @@ const props = defineProps({
   song: { type: Object, required: true }
 })
 
-const { updateSongImageDialog } = useSongFormDialog()
+const { updateSongImageDialog } = useSongDialog()
 
 const openUpdateDialog = () => {
   updateSongImageDialog(props.song)

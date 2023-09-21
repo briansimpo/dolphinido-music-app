@@ -1,4 +1,4 @@
-export function useUserAlbumService () {
+export function useAlbumService () {
   const config = useRuntimeConfig()
   const { token } = useAuthService()
   const { successMessage, errorMessage } = useToastMessage()

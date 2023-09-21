@@ -22,7 +22,7 @@ export function useAudioPlayer () {
     }
 
     audio.value = new Audio()
-    audio.value.src = track.file
+    audio.value.src = fileUrl(track.filepath)
 
     setTimeout(() => {
       isPlaying.value = true

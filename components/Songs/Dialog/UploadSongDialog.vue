@@ -21,7 +21,7 @@ function onDrop (acceptFiles) {
 <template>
   <div>
     <div v-if="file">
-      <CreateSong :file="file" />
+      <CreateSongForm :file="file" />
     </div>
     <div v-else v-bind="getRootProps()">
       <FileDropzone>

@@ -1,12 +1,12 @@
 <script setup>
 import { useDropzone } from 'vue3-dropzone'
+import { inject } from 'vue'
 
-const props = defineProps({
-  album: { type: Object, required: true }
-})
+const dialogRef = inject('dialogRef')
+const album = dialogRef.value.data.album
 
 const { errorMessage } = useToastMessage()
-const { updateAlbumImage } = useUserAlbumService()
+const { updateAlbumImage } = useAlbumService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({
@@ -26,7 +26,9 @@ function onDrop (acceptFiles) {
 function submitForm () {
   const formData = new FormData()
   formData.append('cover_image', form.value.cover_image)
-  updateAlbumImage(props.album.id, formData)
+  updateAlbumImage(album.id, formData)
+  dialogRef.value.close()
+  refreshData()
 }
 
 </script>

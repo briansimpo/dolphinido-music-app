@@ -1,4 +1,4 @@
-export function useUserSongService () {
+export function useSongService () {
   const config = useRuntimeConfig()
   const { token } = useAuthService()
   const { successMessage, errorMessage } = useToastMessage()

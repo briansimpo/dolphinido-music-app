@@ -10,7 +10,9 @@ export function useUnknownAlbumSongs () {
   })
 
   const songs = computed(() => {
-    return data.value.data
+    if (data.value) {
+      return data.value.data
+    }
   })
 
   return {

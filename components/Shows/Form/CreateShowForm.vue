@@ -3,7 +3,7 @@ import { useDropzone } from 'vue3-dropzone'
 
 const { errorMessage } = useToastMessage()
 const { countries } = useCountries()
-const { createShow } = useUserShowService()
+const { createShow } = useShowService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({

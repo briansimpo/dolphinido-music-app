@@ -6,7 +6,7 @@ const dialogRef = inject('dialogRef')
 const show = dialogRef.value.data.show
 
 const { errorMessage } = useToastMessage()
-const { updateShowImage } = useUserShowService()
+const { updateShowImage } = useShowService()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 const { refreshData } = useRefresh()
 

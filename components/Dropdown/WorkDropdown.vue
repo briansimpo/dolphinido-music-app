@@ -1,5 +1,5 @@
 <script setup>
-const { uploadSongDialog } = useSongFormDialog()
+const { uploadSongDialog } = useSongDialog()
 
 const openUploadDialog = () => {
   uploadSongDialog()
