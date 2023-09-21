@@ -1,5 +1,5 @@
 <script setup>
-const { songs } = useUserSongs()
+const { songs } = useUnknownAlbumSongs()
 
 const selectedTrack = ref()
 const albumTracks = ref([])
@@ -13,15 +13,24 @@ const addTrack = () => {
 </script>
 
 <template>
-  <div>
-    <Dropdown
-      v-model="selectedTrack"
-      filter
-      :options="songs"
-      option-label="title"
-      placeholder="Add Existing Track"
-      class="w-full md:w-20rem mb-5 float-start"
-      @change="addTrack"
-    />
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="list mb-8">
+        <div v-for="song in albumTracks" :key="song.id" class="col-xl-12 mb-2">
+          <AlbumTrack :song="song" />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <Dropdown
+        v-model="selectedTrack"
+        filter
+        :options="songs"
+        option-label="title"
+        placeholder="Select Track"
+        class="w-full"
+        @change="addTrack"
+      />
+    </div>
   </div>
 </template>
