@@ -50,13 +50,11 @@ const openUpdateDialog = () => {
           Update
         </button>
       </li>
-
       <li>
-        <button class="btn btn-sm btn-success" @click="handlePublish">
+        <button class="btn btn-sm btn-primary" @click="handlePublish">
           Publish
         </button>
       </li>
-
       <li>
         <button class="btn btn-sm btn-danger" @click="handleDelete">
           Delete
