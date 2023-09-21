@@ -1,7 +1,7 @@
 export function useAlbumTrackService () {
   const config = useRuntimeConfig()
   const { token } = useAuthService()
-  const { successMessage, errorMessage } = useToastMessage()
+  const { errorMessage } = useToastMessage()
 
   const createAlbumTrack = async (formData) => {
     const { data } = await useFetch(config.public.apiBase + '/portal/albums/tracks', {
@@ -14,8 +14,6 @@ export function useAlbumTrackService () {
 
     if (data.value === null) {
       errorMessage()
-    } else {
-      successMessage()
     }
   }
 
@@ -32,8 +30,6 @@ export function useAlbumTrackService () {
 
     if (data.value === null) {
       errorMessage()
-    } else {
-      successMessage()
     }
   }
 
