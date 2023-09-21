@@ -2,6 +2,14 @@
 const props = defineProps({
   song: { type: Object, required: true }
 })
+
+const { deleteAlbumTrack } = useAlbumTrackService()
+const { refreshData } = useRefresh()
+
+const removeTrack = () => {
+  deleteAlbumTrack(props.song.id)
+  refreshData()
+}
 </script>
 
 <template>
@@ -28,7 +36,7 @@ const props = defineProps({
     </li>
     <li>{{ formatDuration(props.song.duration) }}</li>
     <li>
-      <button class="btn">
+      <button class="btn" @click="removeTrack">
         <i class="ri-delete-bin-line" />
       </button>
     </li>
