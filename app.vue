@@ -13,6 +13,7 @@ useHead({
       <ConfirmDialog />
       <DynamicDialog />
       <Toast position="bottom-right" />
+      <AudioPrayer />
     </NuxtLayout>
   </div>
 </template>

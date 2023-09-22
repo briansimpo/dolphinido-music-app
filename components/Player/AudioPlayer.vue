@@ -18,7 +18,7 @@
           <div class="cover__image">
             <img
               data-amplitude-song-info="cover_art_url"
-              src="images/cover/small/1.jpg"
+              src="/images/cover/small/1.jpg"
               alt=""
             >
           </div>
