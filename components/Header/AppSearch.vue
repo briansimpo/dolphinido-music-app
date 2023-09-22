@@ -1,6 +1,6 @@
 <script setup>
-import { OnClickOutside } from '@vueuse/components'
-const { openSearch, closeSearch } = useAppSearch()
+// import { OnClickOutside } from '@vueuse/components'
+// const { openSearch, closeSearch } = useAppSearch()
 </script>
 
 <template>
@@ -11,7 +11,7 @@ const { openSearch, closeSearch } = useAppSearch()
     <input id="search_input" type="text" placeholder="Search here..." class="form-control form-control-sm" @click="openSearch">
   </form>
 
-  <OnClickOutside @trigger="closeSearch">
+  <!--<OnClickOutside @trigger="closeSearch">
     <div id="search_results" class="search pb-3 overflow-auto overflow-y-scroll no-scrollbar">
       <div class="search__head">
         <div class="search__head__filter">
@@ -283,7 +283,7 @@ const { openSearch, closeSearch } = useAppSearch()
         </div>
       </div>
     </div>
-  </OnClickOutside>
+  </OnClickOutside>-->
 </template>
 
 <style>

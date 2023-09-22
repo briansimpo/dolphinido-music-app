@@ -12,12 +12,14 @@
           <span class="ps-3">Home</span>
         </NuxtLink>
       </li>
+
       <li class="nav-item">
         <a href="#" class="nav-link d-flex align-items-center">
           <i class="ri-disc-line fs-5" />
           <span class="ps-3">Genres</span>
         </a>
       </li>
+
       <li class="nav-item">
         <a href="#" class="nav-link d-flex align-items-center">
           <i class="ri-music-2-line fs-5" />
@@ -36,12 +38,6 @@
         <a href="#" class="nav-link d-flex align-items-center">
           <i class="ri-mic-line fs-5" />
           <span class="ps-3">Artists</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link d-flex align-items-center">
-          <i class="ri-broadcast-line fs-5" />
-          <span class="ps-3">Live</span>
         </a>
       </li>
 
