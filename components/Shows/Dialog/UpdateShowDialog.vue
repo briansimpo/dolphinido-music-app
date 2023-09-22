@@ -6,6 +6,7 @@ const show = dialogRef.value.data.show
 
 const { countries } = useCountries()
 const { updateShow } = useShowService()
+const { refreshData } = useRefresh()
 
 const form = ref({
   title: show.title,

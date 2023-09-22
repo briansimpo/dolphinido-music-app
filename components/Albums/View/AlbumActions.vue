@@ -49,24 +49,24 @@ const openTrackDialog = () => {
   <div>
     <ul v-if="!props.album.is_published" class="info-list">
       <li>
-        <button class="btn btn-sm btn-primary" @click="openUpdateDialog">
+        <Button text @click="openUpdateDialog">
           Update
-        </button>
+        </Button>
       </li>
       <li>
-        <button class="btn btn-sm btn-primary" @click="handlePublish">
+        <Button text @click="handlePublish">
           Publish
-        </button>
+        </Button>
       </li>
       <li>
-        <button class="btn btn-sm btn-primary" @click="openTrackDialog">
+        <Button text @click="openTrackDialog">
           Add Track
-        </button>
+        </Button>
       </li>
       <li>
-        <button class="btn btn-sm btn-danger" @click="handleDelete">
+        <Button severity="danger" text @click="handleDelete">
           Delete
-        </button>
+        </Button>
       </li>
     </ul>
   </div>

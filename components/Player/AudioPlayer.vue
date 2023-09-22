@@ -1,38 +1,58 @@
+<script setup>
+const song = ref({
+  title: null,
+  artist: null
+})
+
+function repeat () {
+  // repeat
+}
+
+function next () {
+  // next
+}
+
+function previous () {
+  // prev
+}
+
+function shuffle () {
+  // shuffle
+}
+
+function pausePlay () {
+  // pause play
+}
+
+function isPlaying () {
+  return true
+}
+
+function isPaused () {
+  return false
+}
+
+</script>
 <template>
-  <div id="player">
+  <div id="player" class="show">
     <div class="container">
       <div class="player-container">
         <div class="player-progress">
-          <progress
-            class="amplitude-buffered-progress player-progress__bar"
-            value="0"
-          /><progress
-            class="amplitude-song-played-progress player-progress__bar"
-          /><input
-            type="range"
-            class="amplitude-song-slider player-progress__slider"
-            aria-label="Progress slider"
-          >
+          <progress class="amplitude-buffered-progress player-progress__bar" value="0" />
+          <progress class="amplitude-song-played-progress player-progress__bar" />
+          <input type="range" class="amplitude-song-slider player-progress__slider">
         </div>
         <div class="cover d-flex align-items-center">
           <div class="cover__image">
-            <img
-              data-amplitude-song-info="cover_art_url"
-              src="/images/cover/small/1.jpg"
-              alt=""
-            >
+            <img src="/images/cover/small/1.jpg" alt="">
           </div>
           <div class="cover__content ps-3 d-none d-sm-block">
-            <a
-              href="song-details.html"
-              class="cover__title text-truncate"
-              data-amplitude-song-info="name"
-            />
-            <a
-              href="artist-details.html"
-              class="cover__subtitle text-truncate"
-              data-amplitude-song-info="artist"
-            />
+            <a href="#" class="cover__title text-truncate">
+              {{ song.title }}
+            </a>
+            <a href="#" class="cover__subtitle text-truncate">
+              {{ song.artist }}
+            </a>
           </div>
         </div>
         <div class="player-control">
@@ -40,6 +60,7 @@
             type="button"
             class="amplitude-repeat btn btn-icon me-4 d-none d-md-block"
             aria-label="Repeat"
+            @click="repeat"
           >
             <i class="ri-repeat-2-fill fs-5" />
           </button>
@@ -47,6 +68,7 @@
             type="button"
             class="amplitude-prev btn btn-icon"
             aria-label="Backward"
+            @click="previous"
           >
             <i class="ri-skip-back-mini-fill" />
           </button>
@@ -54,14 +76,16 @@
             type="button"
             class="amplitude-play-pause btn btn-icon btn-default rounded-pill"
             aria-label="Play pause"
+            @click="pausePlay"
           >
-            <i class="ri-play-fill icon-play" />
-            <i class="ri-pause-fill icon-pause" />
+            <i v-if="isPaused" class="ri-play-fill icon-play" />
+            <i v-if="isPlaying" class="ri-pause-fill icon-pause" />
           </button>
           <button
             type="button"
             class="amplitude-next btn btn-icon"
             aria-label="Forward"
+            @click="next"
           >
             <i class="ri-skip-forward-mini-fill" />
           </button>
@@ -69,6 +93,7 @@
             type="button"
             class="amplitude-shuffle amplitude-shuffle-off btn btn-icon ms-4 d-none d-md-block"
             aria-label="Shuffle"
+            @click="shuffle"
           >
             <i class="ri-shuffle-fill fs-5" />
           </button>

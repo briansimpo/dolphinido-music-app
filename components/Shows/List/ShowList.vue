@@ -63,10 +63,9 @@ const appendData = (newData) => {
           <ShowListItem :show="show" class="mb-4" />
         </div>
         <div class="mt-5 text-center">
-          <Button class="btn btn-primary" @click="loadMore">
-            <div class="btn__wrap">
-              <i class="ri-loader-3-fill" /> <span>Load more</span>
-            </div>
+          <Button size="small" @click="loadMore">
+            <i class="ri-loader-3-fill" />
+            <span> Load more</span>
           </Button>
         </div>
       </div>
