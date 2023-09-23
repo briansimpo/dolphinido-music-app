@@ -12,7 +12,7 @@ const form = ref({
   title: album.title,
   genre: album.genre_id,
   album_release: album.album_release_id,
-  release_date: formatDate(album.release_date, 'yyyy-MM-dd')
+  release_year: album.release_year
 })
 
 function submitForm () {
@@ -64,10 +64,10 @@ function submitForm () {
     </div>
 
     <div class="mb-3">
-      <label for="release_date" class="form-label fw-medium">Release Date *</label>
+      <label for="release_year" class="form-label fw-medium">Release Year *</label>
       <Calendar
-        v-model="form.release_date"
-        date-format="yy-mm-dd"
+        v-model="form.release_year"
+        date-format="yy"
         show-icon
         class="w-full flex"
         required

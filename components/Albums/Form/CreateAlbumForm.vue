@@ -12,7 +12,7 @@ const form = ref({
   title: null,
   genre: null,
   album_release: null,
-  release_date: null,
+  release_year: null,
   cover_image: null
 })
 
@@ -31,7 +31,7 @@ function submitForm () {
   formData.append('title', form.value.title)
   formData.append('genre', form.value.genre)
   formData.append('album_release', form.value.album_release)
-  formData.append('release_date', formatDate(form.value.release_date, 'yyyy-MM-dd'))
+  formData.append('release_year', form.value.release_year)
   formData.append('cover_image', form.value.cover_image)
   createAlbum(formData)
 }

@@ -13,7 +13,7 @@ const form = ref({
   title: song.title,
   genre: song.genre_id,
   album: song.album_id,
-  release_date: formatDate(song.release_date, 'yyyy-MM-dd')
+  release_year: song.release_year
 })
 
 function submitForm () {
@@ -38,7 +38,7 @@ function submitForm () {
     </div>
 
     <div class="mb-3">
-      <label for="genre" class="form-label fw-medium">Genre *</label>
+      <label for="genre" class="form-label fw-medium">Genre</label>
       <Dropdown
         v-model="form.genre"
         filter
@@ -52,18 +52,17 @@ function submitForm () {
     </div>
 
     <div class="mb-3">
-      <label for="release_date" class="form-label fw-medium">Release Date *</label>
-      <Calendar
-        v-model="form.release_date"
-        date-format="yy-mm-dd"
-        show-icon
+      <label for="release_year" class="form-label fw-medium">Release Year</label>
+      <InputText
+        v-model="form.release_year"
+        type="year"
         class="w-full flex"
         required
       />
     </div>
 
     <div class="mb-3">
-      <label for="album" class="form-label fw-medium">Album (Optional)</label>
+      <label for="album" class="form-label fw-medium">Album</label>
       <Dropdown
         v-model="form.album"
         filter

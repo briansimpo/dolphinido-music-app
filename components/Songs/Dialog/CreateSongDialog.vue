@@ -9,16 +9,12 @@ const props = defineProps({
 const dialogRef = inject('dialogRef')
 
 const { errorMessage } = useToastMessage()
-const { genres } = useGenres()
 const { createSong } = useSongService()
 const { refreshData } = useRefresh()
 const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 const form = ref({
   title: removeExtension(props.file.name),
-  track: null,
-  genre: null,
-  release_date: null,
   cover_image: null,
   song_file: props.file
 })
@@ -36,8 +32,6 @@ function onDrop (acceptFiles) {
 function submitForm () {
   const formData = new FormData()
   formData.append('title', form.value.title)
-  formData.append('genre', form.value.genre)
-  formData.append('release_date', formatDate(form.value.release_date, 'yyyy-MM-dd'))
   formData.append('cover_image', form.value.cover_image)
   formData.append('song_file', form.value.song_file)
   createSong(formData)
@@ -72,31 +66,6 @@ function submitForm () {
         id="title"
         v-model="form.title"
         type="text"
-        class="w-full flex"
-        required
-      />
-    </div>
-
-    <div class="mb-3">
-      <label for="genre" class="form-label fw-medium">Genre *</label>
-      <Dropdown
-        v-model="form.genre"
-        filter
-        :options="genres"
-        option-value="id"
-        option-label="name"
-        placeholder="Select Genre"
-        class="w-full flex"
-        required
-      />
-    </div>
-
-    <div class="mb-3">
-      <label for="release_date" class="form-label fw-medium">Release Date *</label>
-      <Calendar
-        v-model="form.release_date"
-        date-format="yy-mm-dd"
-        show-icon
         class="w-full flex"
         required
       />

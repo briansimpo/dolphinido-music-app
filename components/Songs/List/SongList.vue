@@ -56,6 +56,11 @@ const appendData = (newData) => {
 <template>
   <div class="list list--lg mt-5">
     <div class="row">
+      <select>
+        <option></option>
+      </select>
+    </div>
+    <div class="row">
       <div v-if="pending">
         <StateLoader />
       </div>
@@ -64,10 +69,9 @@ const appendData = (newData) => {
           <SongListItem :song="song" class="mb-2" />
         </div>
       </div>
-      <div class="mt-5 text-center">
+      <div v-if="!pending" class="mt-5 text-center">
         <Button size="small" @click="loadMore">
-          <i class="ri-loader-3-fill" />
-          <span> Load more</span>
+          <i class="ri-loader-3-fill" /> Load more
         </Button>
       </div>
     </div>

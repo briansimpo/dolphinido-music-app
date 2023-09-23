@@ -19,14 +19,14 @@ const props = defineProps({
           class="text-dark d-flex align-items-center"
         >
           <i class="ri-album-line" />
-          <span class="ps-2 fw-medium">{{ props.song.album || 'Unknown' }}</span>
+          <span class="ps-2 fw-medium">{{ props.song.album || 'Unknown Album' }}</span>
         </a>
       </li>
 
       <li>
         <a href="javascript:void(0);" role="button" class="text-dark d-flex align-items-center" aria-label="Favorite">
           <i class="ri-disc-line" />
-          <span class="ps-2 fw-medium">{{ props.song.genre }}</span>
+          <span class="ps-2 fw-medium">{{ props.song.genre || 'Unknown Genre' }}</span>
         </a>
       </li>
 
@@ -40,7 +40,7 @@ const props = defineProps({
       <li>
         <span class="text-dark d-flex align-items-center">
           <i class="ri-calendar-line" />
-          <span class="ps-2 fw-medium">{{ formatDate(props.song.release_date, 'yyyy') }}</span>
+          <span class="ps-2 fw-medium">{{ props.song.release_year || 'Unknown Year' }}</span>
         </span>
       </li>
     </ul>

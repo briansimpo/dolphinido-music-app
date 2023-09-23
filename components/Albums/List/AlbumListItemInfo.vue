@@ -11,7 +11,7 @@ const props = defineProps({
     </NuxtLink>
     <p class="list__subtitle">
       <span>{{ props.album.genre }}</span> <br>
-      <span>{{ formatDate(props.album.release_date, 'yyyy') }}</span>
+      <span>{{ props.album.release_year }}</span>
     </p>
   </div>
 

@@ -69,7 +69,7 @@ definePageMeta({
                     Music Recognition
                   </h5>
                   <p>
-                    Recognize a song using audio fingerprint technology. You can identify a song from device microphone, music file, or radio station.
+                    Recognize a song playing in close proximity and retrieve it from our music database using our audio tracking service.
                   </p>
                 </div>
               </div>
@@ -84,7 +84,7 @@ definePageMeta({
                     Music Monitoring
                   </h5>
                   <p>
-                    Monitor music airplay on radio stations or monitor background music on TV stations with our music fingerprinting databases.
+                    Monitor music airplay on radio stations or monitor background music on TV stations with our music monitoring service.
                   </p>
                 </div>
               </div>
@@ -199,7 +199,7 @@ definePageMeta({
               <h4 class="mt-4">
                 1. Register for membership
               </h4>
-              <p>Simply provide your email and password and you're good to go. It's that simple.</p>
+              <p>Simply provide your name, email and password and you're good to go.</p>
             </div>
           </div>
           <div class="col-lg-4 col-sm-6">
@@ -208,7 +208,7 @@ definePageMeta({
               <h4 class="mt-4">
                 2. Upload your work
               </h4>
-              <p>Upload your music files and reach your fans instantly. </p>
+              <p>Upload your songs and reach your fans instantly anywhere in the world. </p>
             </div>
           </div>
           <div class="col-lg-4 col-sm-6">
