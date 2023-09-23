@@ -57,7 +57,7 @@ const saveTracks = () => {
                   {{ song.title }}
                 </p>
                 <p class="list__subtitle">
-                  <span>{{ formatDate(song.release_date, 'yyyy') }}</span>
+                  <span>{{ song.release_year }}</span>
                 </p>
               </div>
               <ul class="list__option">
