@@ -24,7 +24,7 @@ onMounted(() => {
 })
 
 const loadMore = () => {
-  if (page.value <= lastPage.value) {
+  if (page.value <= lastPage.value + 1) {
     page.value += 1
     loadData()
   }
