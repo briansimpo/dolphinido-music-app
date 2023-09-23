@@ -15,6 +15,13 @@ const props = defineProps({
     </p>
   </div>
 
+  <div class="list__content">
+    <p class="list__subtitle">
+      <span v-if="props.song.is_free" class="badge bg-primary">Free</span>
+      <span v-if="!props.song.is_free" class="badge bg-success">Sale</span>
+    </p>
+  </div>
+
   <ul class="list__option">
     <li>
       <a href="#" role="button" class="d-inline-flex">

@@ -162,6 +162,7 @@ function submitForm () {
           v-model="form.country"
           input-id="country"
           filter
+          show-clear
           :options="countries"
           placeholder="Select Country"
           class="w-full flex"
@@ -172,6 +173,7 @@ function submitForm () {
         <label for="city" class="form-label fw-medium">City *</label>
         <InputText
           v-model="form.city"
+          show-clear
           input-id="city"
           type="text"
           class="w-full flex"

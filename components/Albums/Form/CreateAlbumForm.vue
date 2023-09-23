@@ -73,6 +73,7 @@ function submitForm () {
       <Dropdown
         v-model="form.genre"
         filter
+        show-clear
         :options="genres"
         option-value="id"
         option-label="name"
@@ -86,6 +87,7 @@ function submitForm () {
       <label for="genre" class="form-label fw-medium">Album Release *</label>
       <Dropdown
         v-model="form.album_release"
+        show-clear
         :options="albumReleases"
         option-value="id"
         option-label="name"
