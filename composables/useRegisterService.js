@@ -17,7 +17,7 @@ export function useRegisterService () {
     } else {
       successMessage('Your account has been created')
       user.value.is_artist = true
-      return navigateTo('/controlroom')
+      return navigateTo('/controlroom', { external: true });
     }
   }
 

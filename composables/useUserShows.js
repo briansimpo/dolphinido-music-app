@@ -11,7 +11,7 @@ export function useUserShows () {
 
   const shows = computed(() => {
     if (data.value) {
-      return data.value.data
+      return data.value
     }
   })
 
