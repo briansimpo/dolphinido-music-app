@@ -1,4 +1,5 @@
 <script setup>
+import { inject } from 'vue'
 
 const dialogRef = inject('dialogRef')
 const song = dialogRef.value.data.song
