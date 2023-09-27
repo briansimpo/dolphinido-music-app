@@ -1,15 +1,15 @@
 import { useDialog } from 'primevue/usedialog'
 
 const updateAlbumComponent = defineAsyncComponent(() =>
-  import('../components/Albums/Dialog/UpdateAlbumDialog.vue')
+  import('../components/Controlroom/Albums/Dialog/UpdateAlbumDialog.vue')
 )
 
 const updateAlbumImageComponent = defineAsyncComponent(() =>
-  import('../components/Albums/Dialog/UpdateAlbumImageDialog.vue')
+  import('../components/Controlroom/Albums/Dialog/UpdateAlbumImageDialog.vue')
 )
 
 const addAlbumTrackComponent = defineAsyncComponent(() =>
-  import('../components/Albums/Dialog/AddAlbumTrackDialog.vue')
+  import('../components/Controlroom/Albums/Dialog/AddAlbumTrackDialog.vue')
 )
 
 export function useAlbumDialog () {

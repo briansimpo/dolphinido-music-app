@@ -1,15 +1,15 @@
 import { useDialog } from 'primevue/usedialog'
 
 const uploadSongComponent = defineAsyncComponent(() =>
-  import('../components/Songs/Dialog/UploadSongDialog.vue')
+  import('../components/Controlroom/Songs/Dialog/UploadSongDialog.vue')
 )
 
 const updateSongComponent = defineAsyncComponent(() =>
-  import('../components/Songs/Dialog/UpdateSongDialog.vue')
+  import('../components/Controlroom/Songs/Dialog/UpdateSongDialog.vue')
 )
 
 const updateSongImageComponent = defineAsyncComponent(() =>
-  import('../components/Songs/Dialog/UpdateSongImageDialog.vue')
+  import('../components/Controlroom/Songs/Dialog/UpdateSongImageDialog.vue')
 )
 
 export function useSongDialog () {

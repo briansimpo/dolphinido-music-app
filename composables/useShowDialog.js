@@ -1,11 +1,11 @@
 import { useDialog } from 'primevue/usedialog'
 
 const updateShowComponent = defineAsyncComponent(() =>
-  import('../components/Shows/Dialog/UpdateShowDialog.vue')
+  import('../components/Controlroom/Shows/Dialog/UpdateShowDialog.vue')
 )
 
 const updateShowImageComponent = defineAsyncComponent(() =>
-  import('../components/Shows/Dialog/UpdateShowImageDialog.vue')
+  import('../components/Controlroom/Shows/Dialog/UpdateShowImageDialog.vue')
 )
 
 export function useShowDialog () {
