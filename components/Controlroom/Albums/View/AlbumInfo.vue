@@ -39,7 +39,7 @@ const props = defineProps({
       <li>
         <span class="text-dark d-flex align-items-center">
           <i class="ri-calendar-line" />
-          <span class="ps-2 fw-medium">{{ props.album.release_year }}</span>
+          <span class="ps-2 fw-medium">{{ props.album.year }}</span>
         </span>
       </li>
     </ul>

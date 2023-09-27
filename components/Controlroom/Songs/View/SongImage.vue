@@ -29,7 +29,7 @@ const openUpdateDialog = () => {
       </div>
       <div class="cover__image">
         <Image
-          :src="fileUrl(props.song.cover_image)"
+          :src="props.song.image_url"
           alt="cover image"
         />
         <button

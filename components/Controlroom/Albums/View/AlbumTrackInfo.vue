@@ -19,7 +19,7 @@ const removeTrack = () => {
     </p>
     <p class="list__subtitle">
       <span>{{ props.song.genre || 'Unknown Genre' }}</span> <br>
-      <span>{{ props.song.release_year }}</span>
+      <span>{{ props.song.year }}</span>
     </p>
   </div>
 

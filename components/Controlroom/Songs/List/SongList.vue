@@ -16,7 +16,7 @@ const sortings = ref([
   'title',
   'artist',
   'album',
-  'release_year'
+  'year'
 ])
 
 const { data: songs, pending } = await useFetch('/portal/songs', {

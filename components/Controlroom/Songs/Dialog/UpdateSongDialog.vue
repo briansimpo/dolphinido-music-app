@@ -1,5 +1,4 @@
 <script setup>
-import { inject } from 'vue'
 
 const dialogRef = inject('dialogRef')
 const song = dialogRef.value.data.song
@@ -11,9 +10,9 @@ const { refreshData } = useRefresh()
 
 const form = ref({
   title: song.title,
+  year: song.year,
   genre: song.genre_id,
-  album: song.album_id,
-  release_year: song.release_year
+  album: song.album_id
 })
 
 function submitForm () {
@@ -52,9 +51,9 @@ function submitForm () {
     </div>
 
     <div class="mb-3">
-      <label for="release_year" class="form-label fw-medium">Release Year</label>
+      <label for="year" class="form-label fw-medium">Release Year</label>
       <InputText
-        v-model="form.release_year"
+        v-model="form.year"
         type="year"
         class="w-full flex"
         required

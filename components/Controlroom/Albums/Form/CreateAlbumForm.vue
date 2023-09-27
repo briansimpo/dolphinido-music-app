@@ -11,8 +11,8 @@ const { getRootProps, getInputProps } = useDropzone({ onDrop })
 const form = ref({
   title: null,
   genre: null,
+  year: null,
   album_release: null,
-  release_year: null,
   cover_image: null
 })
 
@@ -30,8 +30,8 @@ function submitForm () {
   const formData = new FormData()
   formData.append('title', form.value.title)
   formData.append('genre', form.value.genre)
+  formData.append('year', form.value.year)
   formData.append('album_release', form.value.album_release)
-  formData.append('release_year', form.value.release_year)
   formData.append('cover_image', form.value.cover_image)
   createAlbum(formData)
 }
@@ -98,11 +98,10 @@ function submitForm () {
     </div>
 
     <div class="mb-3">
-      <label for="release_date" class="form-label fw-medium">Release Date *</label>
-      <Calendar
-        v-model="form.release_date"
-        date-format="yy-mm-dd"
-        show-icon
+      <label for="year" class="form-label fw-medium">Release Year *</label>
+      <InputText
+        v-model="form.year"
+        type="year"
         class="w-full flex"
         required
       />

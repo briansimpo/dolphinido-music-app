@@ -40,7 +40,7 @@ const props = defineProps({
       <li>
         <span class="text-dark d-flex align-items-center">
           <i class="ri-calendar-line" />
-          <span class="ps-2 fw-medium">{{ props.song.release_year || 'Unknown Year' }}</span>
+          <span class="ps-2 fw-medium">{{ props.song.year || 'Unknown Year' }}</span>
         </span>
       </li>
     </ul>

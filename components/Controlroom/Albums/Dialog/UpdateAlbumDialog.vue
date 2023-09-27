@@ -1,5 +1,4 @@
 <script setup>
-import { inject } from 'vue'
 const dialogRef = inject('dialogRef')
 const album = dialogRef.value.data.album
 
@@ -11,8 +10,8 @@ const { refreshData } = useRefresh()
 const form = ref({
   title: album.title,
   genre: album.genre_id,
-  album_release: album.album_release_id,
-  release_year: album.release_year
+  year: album.year,
+  album_release: album.album_release_id
 })
 
 function submitForm () {
@@ -64,11 +63,10 @@ function submitForm () {
     </div>
 
     <div class="mb-3">
-      <label for="release_year" class="form-label fw-medium">Release Year *</label>
-      <Calendar
-        v-model="form.release_year"
-        date-format="yy"
-        show-icon
+      <label for="year" class="form-label fw-medium">Release Year *</label>
+      <InputText
+        v-model="form.year"
+        type="year"
         class="w-full flex"
         required
       />
