@@ -5,28 +5,30 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="list__content">
-    <NuxtLink :to="`/controlroom/albums/${props.album.id}`" class="list__title text-truncate">
-      {{ props.album.title }}
-    </NuxtLink>
-    <p class="list__subtitle">
-      <span>{{ props.album.genre }}</span> <br>
-      <span>{{ props.album.year }}</span>
-    </p>
-  </div>
+  <div>
+    <div class="list__content">
+      <NuxtLink :to="`/controlroom/albums/${props.album.id}`" class="list__title text-truncate">
+        {{ props.album.title }}
+      </NuxtLink>
+      <p class="list__subtitle">
+        <span>{{ props.album.genre }}</span> <br>
+        <span>{{ props.album.year }}</span>
+      </p>
+    </div>
 
-  <ul class="list__option">
-    <li>
-      <a href="#" role="button" class="d-inline-flex">
-        <i v-if="props.album.likes <= 0" class="ri-heart-line heart-empty" />
-        <i v-else class="ri-heart-fill heart-fill" />
-        {{ formatCount(props.album.likes) }}
-      </a>
-    </li>
-    <li>
-      <a href="#" role="button" class="d-inline-flex">
-        <i class="ri-arrow-down-line" /> {{ formatCount(props.album.downloads) }}
-      </a>
-    </li>
-  </ul>
+    <ul class="list__option">
+      <li>
+        <a href="#" role="button" class="d-inline-flex">
+          <i v-if="props.album.likes <= 0" class="ri-heart-line heart-empty" />
+          <i v-else class="ri-heart-fill heart-fill" />
+          {{ formatCount(props.album.likes) }}
+        </a>
+      </li>
+      <li>
+        <a href="#" role="button" class="d-inline-flex">
+          <i class="ri-arrow-down-line" /> {{ formatCount(props.album.downloads) }}
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>

@@ -1,3 +1,5 @@
 <template>
-  <div />
+  <div>
+    <span>Logo</span>
+  </div>
 </template>

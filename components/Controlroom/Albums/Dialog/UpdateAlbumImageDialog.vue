@@ -1,6 +1,5 @@
 <script setup>
 import { useDropzone } from 'vue3-dropzone'
-import { inject } from 'vue'
 
 const dialogRef = inject('dialogRef')
 const album = dialogRef.value.data.album
