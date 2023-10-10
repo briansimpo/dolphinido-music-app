@@ -2,35 +2,73 @@
 
 import { ref, onMounted, watch } from 'vue'
 
-export default function useDataFetch (url, filter) {
+export default function useDataFetch (url, params) {
   const config = useRuntimeConfig()
   const { token } = useAuthService()
+  const { errorMessage } = useToastMessage()
+  const apiUrl = url
+  const filter = params
 
   // Define a reactive array to hold the fetched data
-  const data = ref([])
+  const datalist = ref([])
+  const lastPage = ref(1)
+  const pending = ref(false)
 
-  // Define a function to fetch data
-  async function fetchData () {
+  const fetchData = async () => {
+    if (pending.value) {
+      return
+    }
+    pending.value = true
     try {
-      const response = await fetch(`${config.public.apiBase}${url}`, {
+      const response = await $fetch(apiUrl, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token.value}`
         },
-        params: filter.value // Assuming filter.value is an object with query parameters
+        baseURL: config.public.apiBase,
+        params: filter
       })
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`)
-      }
-
-      const result = await response.json()
-
-      // Append the fetched data to the array
-      data.value = data.value.concat(result)
+      appendData(response.data)
+      lastPage.value = response.meta.last_page
     } catch (error) {
-      // Handle errors if necessary
-      console.error('An error occurred:', error)
+      errorMessage(error)
+    } finally {
+      pending.value = false
+    }
+  }
+
+  const filterData = async () => {
+    if (pending.value) {
+      return
+    }
+
+    pending.value = true
+    filter.page = lastPage.value
+    try {
+      const response = await $fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token.value}`
+        },
+        baseURL: config.public.apiBase,
+        params: filter
+      })
+      datalist.value = response.data
+      lastPage.value = response.meta.last_page
+    } catch (error) {
+      errorMessage(error)
+    } finally {
+      pending.value = false
+    }
+  }
+
+  const appendData = (data) => {
+    if (data.length > 0) {
+      data.forEach((item) => {
+        if (!datalist.value.includes(item.value)) {
+          datalist.value.push(item)
+        }
+      })
     }
   }
 
@@ -41,10 +79,12 @@ export default function useDataFetch (url, filter) {
 
   // Watch for changes in filter.value and refetch data
   watch(filter, () => {
-    fetchData()
+    filterData()
   })
 
   return {
-    data
+    pending,
+    datalist,
+    lastPage
   }
 }

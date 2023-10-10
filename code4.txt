@@ -95,7 +95,7 @@ const appendData = (data) => {
       <StateLoader />
     </div>
     <div v-else>
-      <div class="row mb-6">
+      <div v-if="datalist.length > 0" class="row mb-6">
         <div class="col-lg-6 mb-2">
           <Button icon="pi pi-upload" label="Upload" @click="uploadSongDialog" />
         </div>
@@ -148,6 +148,7 @@ const appendData = (data) => {
           <p class="display-5 email">
             You do not have any songs
           </p>
+          <Button icon="pi pi-upload" label="Add new song" @click="uploadSongDialog" />
         </div>
       </div>
     </div>

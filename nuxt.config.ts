@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
 
   modules: ['@sidebase/nuxt-auth'],
+
   typescript: {
     shim: false
   },
@@ -18,10 +19,7 @@ export default defineNuxtConfig({
   },
 
   components: [
-    {
-      path: '~/components',
-      pathPrefix: false
-    }
+    { path: '~/components', pathPrefix: false }
   ],
 
   app: {
@@ -29,31 +27,22 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          name: 'description',
-          content: "Malawi's online music network for artists first"
-        },
-        {
-          name: 'keywords',
-          content: 'Dolphinido, Audio Fingerprint, Music Monitoring '
-        }
+        { name: 'description', content: "Malawi's online music network for artists first" },
+        { name: 'keywords', content: 'Dolphinido, Audio Fingerprint, Music Monitoring ' }
       ],
 
       link: [
         { rel: 'icon', href: '/favicon.png' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;display=swap'
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&amp;display=swap'
-        },
-        { rel: 'stylesheet', href: '/css/plugins.bundle.css' },
-        { rel: 'stylesheet', href: '/css/styles.bundle.css' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;display=swap' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&amp;display=swap' },
+        { rel: 'stylesheet', href: '/css/bootstrap.css' },
+        { rel: 'stylesheet', href: '/css/app.css' }
       ],
 
-      script: [{ src: '/js/plugins.bundle.js', body: true }]
+      script: [
+        { src: '/js/plugins.js' },
+        { src: '/js/scripts.js' }
+      ]
     }
   },
 
