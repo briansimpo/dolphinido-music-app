@@ -6,7 +6,7 @@ const params = ref({
   genre: null,
   sort: null,
   page: 1,
-  limit: 5
+  limit: 10
 })
 
 const sortOptions = ref([
@@ -19,6 +19,7 @@ const sortOptions = ref([
 const { pending, data, loadMore } = useDataFetch('/portal/songs', params.value)
 
 </script>
+
 <template>
   <div class="list list--lg mt-5">
     <div v-if="pending">
