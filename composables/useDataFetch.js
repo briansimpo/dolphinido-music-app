@@ -1,16 +1,11 @@
-// useDataFetching.js
-
 import { ref, onMounted, watch } from 'vue'
 
 export default function useDataFetch (url, params) {
   const config = useRuntimeConfig()
   const { token } = useAuthService()
   const { errorMessage } = useToastMessage()
-  const apiUrl = url
-  const filter = params
 
-  // Define a reactive array to hold the fetched data
-  const datalist = ref([])
+  const data = ref([])
   const lastPage = ref(1)
   const pending = ref(false)
 
@@ -20,13 +15,13 @@ export default function useDataFetch (url, params) {
     }
     pending.value = true
     try {
-      const response = await $fetch(apiUrl, {
+      const response = await $fetch(url, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token.value}`
         },
         baseURL: config.public.apiBase,
-        params: filter
+        params
       })
       appendData(response.data)
       lastPage.value = response.meta.last_page
@@ -43,17 +38,17 @@ export default function useDataFetch (url, params) {
     }
 
     pending.value = true
-    filter.page = lastPage.value
+    params.page = lastPage.value
     try {
-      const response = await $fetch(apiUrl, {
+      const response = await $fetch(url, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token.value}`
         },
         baseURL: config.public.apiBase,
-        params: filter
+        params
       })
-      datalist.value = response.data
+      data.value = response.data
       lastPage.value = response.meta.last_page
     } catch (error) {
       errorMessage(error)
@@ -62,29 +57,34 @@ export default function useDataFetch (url, params) {
     }
   }
 
-  const appendData = (data) => {
-    if (data.length > 0) {
-      data.forEach((item) => {
-        if (!datalist.value.includes(item.value)) {
-          datalist.value.push(item)
+  const loadMore = () => {
+    if (params.page <= lastPage.value) {
+      params.page += 1
+      fetchData()
+    }
+  }
+
+  const appendData = (newdata) => {
+    if (newdata.length > 0) {
+      newdata.forEach((item) => {
+        if (!data.value.includes(item.value)) {
+          data.value.push(item)
         }
       })
     }
   }
 
-  // Fetch data when the component is mounted and whenever filter.value changes
   onMounted(() => {
     fetchData()
   })
 
-  // Watch for changes in filter.value and refetch data
-  watch(filter, () => {
+  watch(params, () => {
     filterData()
   })
 
   return {
     pending,
-    datalist,
-    lastPage
+    data,
+    loadMore
   }
 }

@@ -1,20 +1,12 @@
 <script setup>
-const config = useRuntimeConfig()
-const { token } = useAuthService()
-
 const { genres } = useGenres()
 const { uploadSongDialog } = useSongDialog()
-const { errorMessage } = useToastMessage()
-
-const datalist = ref([])
-const lastPage = ref(1)
-const pending = ref(false)
 
 const filter = ref({
   genre: null,
   sort: null,
   page: 1,
-  limit: 2
+  limit: 5
 })
 
 const sortings = ref([
@@ -24,70 +16,8 @@ const sortings = ref([
   'year'
 ])
 
-onMounted(() => {
-  loadData()
-})
+const { pending, data, loadMore } = useDataFetch('/portal/songs', filter.value)
 
-watch(filter.value, () => {
-  filterData()
-})
-
-const loadData = async () => {
-  if (pending.value) {
-    return
-  }
-  pending.value = true
-  const response = await fetch('/portal/songs', filter.value)
-  appendData(response.data)
-  lastPage.value = response.meta.last_page
-  pending.value = false
-}
-
-const filterData = async () => {
-  if (pending.value) {
-    return
-  }
-  filter.value.page = lastPage.value
-  pending.value = true
-  const response = await fetch('/portal/songs', filter.value)
-  datalist.value = response.data
-  lastPage.value = response.meta.last_page
-  pending.value = false
-}
-
-const loadMore = () => {
-  if (filter.value.page <= lastPage.value) {
-    filter.value.page += 1
-    loadData()
-  }
-}
-
-const fetch = async (url, params) => {
-  try {
-    const response = await $fetch(url, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token.value}`
-      },
-      baseURL: config.public.apiBase,
-      params
-    })
-
-    return response
-  } catch (error) {
-    errorMessage(error)
-  }
-}
-
-const appendData = (data) => {
-  if (data.length > 0) {
-    data.forEach((item) => {
-      if (!datalist.value.includes(item.value)) {
-        datalist.value.push(item)
-      }
-    })
-  }
-}
 </script>
 <template>
   <div class="list list--lg mt-5">
@@ -133,9 +63,9 @@ const appendData = (data) => {
           </div>
         </div>
       </div>
-      <div v-if="datalist.length > 0" class="row">
+      <div v-if="data.length > 0" class="row">
         <div class="col-lg-12">
-          <div v-for="song in datalist" :key="song.id">
+          <div v-for="song in data" :key="song.id">
             <SongListItem :song="song" class="mb-2" />
           </div>
           <div class="mt-5 text-center">
