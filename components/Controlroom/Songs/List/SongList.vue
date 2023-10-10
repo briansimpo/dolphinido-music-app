@@ -2,21 +2,21 @@
 const { genres } = useGenres()
 const { uploadSongDialog } = useSongDialog()
 
-const filter = ref({
+const params = ref({
   genre: null,
   sort: null,
   page: 1,
   limit: 5
 })
 
-const sortings = ref([
+const sortOptions = ref([
   'title',
   'artist',
   'album',
   'year'
 ])
 
-const { pending, data, loadMore } = useDataFetch('/portal/songs', filter.value)
+const { pending, data, loadMore } = useDataFetch('/portal/songs', params.value)
 
 </script>
 <template>
@@ -34,7 +34,7 @@ const { pending, data, loadMore } = useDataFetch('/portal/songs', filter.value)
             <div class="col-lg-6 mb-2">
               <div class="p-float-label">
                 <Dropdown
-                  v-model="filter.genre"
+                  v-model="params.genre"
                   filter
                   show-clear
                   :options="genres"
@@ -50,9 +50,9 @@ const { pending, data, loadMore } = useDataFetch('/portal/songs', filter.value)
             <div class="col-lg-6">
               <div class="p-float-label">
                 <Dropdown
-                  v-model="filter.sort"
+                  v-model="params.sort"
                   show-clear
-                  :options="sortings"
+                  :options="sortOptions"
                   placeholder="Sort By"
                   class="w-full flex"
                   required
