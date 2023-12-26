@@ -1,5 +1,6 @@
 <script setup>
 const { artistTypes } = useArtistTypes()
+const { countries } = useCountries()
 const { register } = useRegisterService()
 const { user } = useAuthService()
 
@@ -82,10 +83,13 @@ function submitForm () {
             <div class="col-lg-6">
               <div class="mb-3">
                 <label for="country" class="form-label fw-medium">Country *</label>
-                <InputText
-                  id="country"
+                <Dropdown
                   v-model="form.country"
-                  type="text"
+                  input-id="country"
+                  filter
+                  show-clear
+                  :options="countries"
+                  placeholder="Select Country"
                   class="w-full flex"
                   required
                 />

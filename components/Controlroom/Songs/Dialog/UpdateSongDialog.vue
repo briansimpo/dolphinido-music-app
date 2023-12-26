@@ -66,6 +66,7 @@ function submitForm () {
       <Dropdown
         v-model="form.album"
         filter
+        show-clear
         :options="albums"
         option-value="id"
         option-label="title"
